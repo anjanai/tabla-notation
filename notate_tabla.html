@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+      crossorigin="anonymous"></script>
+    <script src=notate_tabla.js></script>
+  </head>
+  <body onload="addButtons()">
+    <span id=bols></span>
+    <table>
+      <tr>
+	<td >
+	  
+	</td>
+	<td>
+	  <form>
+	    <input type="radio" id="devanagari" onclick="toDevanagari();"
+		   name="format" value="devanagari" checked>Devanagari</input>
+	    
+	    <input type="radio" id="vishwamohini" " onclick="toVishwamohini();"
+		   name="format" value="vishwamohini">Vishwamohini</input>
+
+	    <br>
+
+	    
+	    <textarea id="notation" rows="10" cols="80">
+ गद् दी घिड नग  नागे तिर किट तक  तिर किट तक ता-  कत् - त धा 
+तिर किट गदी गने  धा - नागे तिर  किट तक धिर धिर  कत् - धिर धिर 
+कत् - धिर धिर  कत् - नागे तिर  किट तक धिर धिर  कत् - धिर धिर 
+कत् - धिर धिर  कत् - नागे तिर  किट तक धिर धिर  कत् - धिर धिर 
+
+कत् - धिर धिर  कत् - - -  गद् दी घिड नग  नागे तिर किट तक  
+तिर किट तक ता-  कत् - त धा  तिर किट गदी गने  धा - नागे तिर  
+किट तक धिर धिर  कत् - धिर धिर  कत् - 1 - 2 - नागे तिर  
+किट तक धिर धिर  कत् - धिर धिर  कत् - 1 - 2 - नागे तिर  
+
+किट तक धिर धिर  कत् - धिर धिर  कत् - 1 -   गद् दी घिड नग  
+नागे तिर किट तक  तिर किट तक ता-  कत् - त धा  तिर किट गदी गने  
+धा - नागे तिर  किट तक धिर धिर  कत् -  1 - 2 -  नागे तिर  
+किट तक धिर धिर  कत् - 1 - 2 -  नागे तिर  किट तक धिर धिर  
+
+कत् -
+	    </textarea>
+<br> Bols per beat: <input id="bols_per_beat" type="number" value="4"  style="width: 2em">
+	  </form>
+<br>
+
+	  <button onclick="createNotation()"> Create Formatted text </button>
+	  <button onclick="createVishwamohini()"> Create Vishwamohini Notation </button>
+	  <br>
+	  <button onclick="copyNotation()">Copy Formatted text as HTML</button>
+	  <button onclick="copyVishwamohini()">Copy Vishwamohini script</button>
+	  <br>
+	  <table id=formatted border=1 cellspacing=0 ><tbody></tbody></table>
+	  <pre><span id=converted></span>
+	  </pre>
+	  
+	</td>
+      </tr>
+	</table>    
+  </body>
+</html>
