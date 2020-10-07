@@ -43,5 +43,5 @@ The contents of your teentaal.html file should look like:
 ```
 
 The tool also generates notation for the Vishwamohini tool. This tool is another free web-based tool for tabla notation, which also lets you hear the tabla sounds online.
-Please see http://vishwamohini.com/ and http://vishwamohini.com/music/demo.php for more. You will need to sign up to be able to save something new, but you can play around with things using my sandbox.
+Please see http://vishwamohini.com/ and http://vishwamohini.com/music/demo.php for more. You will need to sign up to be able to save something new, but you can play around with things using my sandbox: http://vishwamohini.com/music/music.php?id=871.
 
