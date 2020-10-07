@@ -1,6 +1,8 @@
-# Notate.Tabla
+# Notate.Tabla 
+https://anjanai.github.io/tabla-notation/
 
-**Notate.Tabla** is a simple html-based tool that allows you to notate tabla compositions. This is intended for tabla-players who prefer to read and write their compositions in the devanagari script.
+**Notate.Tabla** is a simple html-based tool that allows you to notate tabla compositions. This is intended for tabla-players who prefer to read and write their compositions in the devanagari script. Access the tool [here](https://anjanai.github.io/tabla-notation/).
+
 In a few minutes, you can notate a composition on this page, and also generate the composition in other formats.
 ## Quick Start:  Create a simple vilambit teentaal theka.
 
