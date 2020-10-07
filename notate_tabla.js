@@ -3,15 +3,15 @@ var vishwa_bols = {};
 var current_format = "devanagari"
 
 var bols = `
-. . कत् K4 कि K2 क K3 
-. . गे G1 गद् G3 ग G3 घे H1 घि H2 
+. . कत् K4 कि K2 क्ड​ (K2D8) क K3 
+. . गे G1 गद् G3 गत् G3 ग G3 घे H1 घिं H2 घि H2 
 . . त्र T9 
 . . ता T1 तिं T2 तू T3 ति T4 तेत् T6 त T7
-. . दी D7
-. . धा D1  धिं D2 धि D4 धेत् D6
+. . दी D7 दिं D7 
+. . धा D1  धिं D2 धि D4 धेत् D6 धे D6 ध D6 
 . . ना N1 ने N2 न n2 
 . . ट T8 ड D8
-. . र R1
+. . रा R1 र R1
 
 `.trim().split(/\s+/);
 
@@ -100,14 +100,17 @@ function createNotation() {
     
     var lines = orig.split("\n");
     var bols_per_beat = $("#bols_per_beat").val();
-    console.log(bols_per_beat);
+    
     $.each(lines, function (i, line) {
 	line = line.trim().split(/\s+/);
 	markup = "<tr>";
 	for (let i = 0, j=0; i < line.length; i++) {
 	    if (j++ == 0) markup += "<td>"
-	    markup += line[i] + " "
-	    if (j == bols_per_beat) {
+	    if (bols_per_beat > 0 || line[i] != "|") {
+		markup += line[i] + " ";
+	    }
+	    if ((bols_per_beat <= 0 && line[i] == "|") ||
+		(bols_per_beat > 0 && j == bols_per_beat)) {
 		markup += "</td>"
 		j =0;
 	    }
@@ -125,12 +128,16 @@ function createVishwamohini() {
 	for (let key in tabla_bols) {
 	    orig = orig.replace(new RegExp(key, "g"), tabla_bols[key]);
 	}
-    repl = orig.replace(/\|/g, "");
+
+    var bols_per_beat = $("#bols_per_beat").val();
+    if (bols_per_beat <= 0)
+	repl = orig;
+    else
+	repl = orig.replace(/\|/g, "");
+    
     var lines = repl.split("\n");
     converted = "[melody start]\n" ;
 
-    var bols_per_beat = $("#bols_per_beat").val();
-    
     $.each(lines, function (i, line) {
 	line = line.trim();
 	if (line == "") {
