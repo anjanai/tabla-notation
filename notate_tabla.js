@@ -12,9 +12,21 @@ var bols = `
 . . ना N1 ने N2 न n2 
 . . ट T8 ड D8
 . . रा R1 र R1
-
 `.trim().split(/\s+/);
 
+var phrases = `
+. तिट कत गदी गने
+. धात्रक धेतिट धा-ने
+. धिरधिर किटतक तिरकिट ता-तिर
+`.trim().split(/\s+/);
+
+
+function saveNotation () {
+    format = ($('input[name=format]:checked').val());
+    txt = $("#notation").val();
+    localStorage.setItem("tabla-notation_format", format);
+    localStorage.setItem("tabla-notation_txt", txt);
+}
 
 function vishwaLine(l, bols_per_beat) {
     //Replace numbers by -
@@ -88,7 +100,7 @@ function copyNotation() {
 
 
 function createNotation() {
-    
+    saveNotation();
     tbody = $("#formatted tbody"); 
     tbody.empty();
     var orig;
@@ -123,6 +135,7 @@ function createNotation() {
 }
 
 function createVishwamohini() {
+    saveNotation();
     orig = $("#notation").val().trim();
     if (current_format == "devanagari") 
 	for (let key in tabla_bols) {
@@ -154,10 +167,17 @@ function createVishwamohini() {
     $("#converted").text(converted);
 }
 
-function insertNote(id) {
+function insertNote(id, span) {
+    console.log (span);
     format = ($('input[name=format]:checked').val());
     if (format == "vishwamohini") {
-	id = tabla_bols[id];
+	if (span == "bols") 
+	    id = tabla_bols[id];
+	else {
+	    for (let key in tabla_bols) {
+		id = id.replace(new RegExp(key, "g"), tabla_bols[key]);
+	    }
+	}
     }
     $("#notation").insertAtCaret(id);
 }
@@ -175,12 +195,26 @@ function addButtons() {
 	var b = $('<button/>', {
 	    text: bols[i],
 	    id: bols[i],
-	    click: function () { insertNote(this.id); }
+	    click: function () { insertNote(this.id, "bols"); }
 	});
 	$("#bols").append(b);	    
     }
-    console.log(tabla_bols);
+
+    var i=0;
+    for (i=0; i<phrases.length; i++) {
+	if (phrases[i] == '.') {
+	    $("#phrases").append("<br>");
+	    continue;
+	}
+	var b = $('<button/>', {
+	    text: phrases[i],
+	    id: phrases[i],
+	    click: function () { insertNote(this.id, "phrases"); }
+	});
+	$("#phrases").append(b);	    
+    }
 }
+
 
 $(document).ready(function () {
     jQuery.fn.extend({
