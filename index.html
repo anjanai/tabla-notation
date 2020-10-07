@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title> Notate.Tabla </title>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
@@ -8,10 +9,13 @@
     <script src=notate_tabla.js></script>
   </head>
   <body onload="addButtons()">
+    <h1> Notate.Tabla </h1>
+    Type in the textarea box below, and use the buttons to quickly add bols and phrases in the box.
+    
     <table>
       <tr>
-	<td><span id=bols></span></td>
-	<td><span id=phrases></span></td>
+	<td><h2>Bols</h2><span id=bols></span></td>
+	<td style="vertical-align:top"><h2>Phrases</h2><span id=phrases></span></td>
       </tr>
       </table>
     <table>
@@ -45,7 +49,7 @@
 	  </form>
 <br>
 
-	  <button onclick="createNotation()"> Create Formatted text </button>
+	  <button onclick="createNotation()"> Create Formatted Text </button>
 	  <button onclick="createVishwamohini()"> Create Vishwamohini Notation </button>
 	  <br>
 	  <button onclick="copyNotation()">Copy Formatted text as HTML</button>
