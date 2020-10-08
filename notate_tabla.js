@@ -190,7 +190,7 @@ function addButtons() {
 	    id: bols[i],
 	    click: function () { insertNote(this.id, "bols"); }
 	});
-	b.addClass("button-xsmall pure-button");
+	b.addClass("bol");
 	$("#bols").append(b);	    
     }
 
@@ -205,13 +205,35 @@ function addButtons() {
 	    id: phrases[i],
 	    click: function () { insertNote(this.id, "phrases"); }
 	});
-	b.addClass("button-xsmall pure-button");
+	b.addClass("bol");
 	$("#phrases").append(b);	    
     }
 }
 
 
 $(document).ready(function () {
+    addButtons();
+
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+    
+    for (i = 0; i < coll.length; i++) {
+	coll[i].addEventListener("click", function() {
+	    var content = this.nextElementSibling;
+	    var txt = $(this).text().split(' ');
+	    if (txt[0]=="Hide") txt[0] = "Show";
+	    else txt[0] = "Hide";
+	    txt = txt.join(' ')
+	    $(this).html(txt);
+	    this.classList.toggle("active");
+	    if (content.style.display === "block") {
+		content.style.display = "none";
+	    } else {
+		content.style.display = "block";
+	    }
+	});
+    }
+    
     jQuery.fn.extend({
         insertAtCaret: function (myValue) {
             return this.each(function (i) {
