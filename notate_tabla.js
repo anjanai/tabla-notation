@@ -3,21 +3,14 @@ var vishwa_bols = {};
 var current_format = "devanagari"
 
 var bols = `
-. . कत् K4 कि K2 क्ड​ (K2D8) क K3 
-. . गे G1 गद् G3 गत् G3 ग G3 घे H1 घिं H2 घि H2 
-. . त्र T9 
-. . ता T1 तिं T2 तू T3 ति T4 तेत् T6 त T7
-. . दी D7 दिं D7 
-. . धा D1  धिं D2 धि D4 धेत् D6 धे D6 ध D6 
-. . ना N1 ने N2 न n2 
-. . ट T8 ड D8
-. . रा R1 र R1
+. . कत् K4 कि K2 क्ड​ (K2D8) क K3 गे G1 गद् G3 गत् G3 ग G3 घे H1 घिं H2 घि H2 
+ता T1 तिं T2 तू T3 ति T4 तेत् T6 त्र T9 त T7 धा D1  धिं D2 धि D4 धेत् D6 धे D6 ध D6 
+दी D7 दिं D7 ना N1 ने N2 न n2 ट T8 ड D8 रा R1 र R1
 `.trim().split(/\s+/);
 
 var phrases = `
-. तिट कत गदी गने
-. धात्रक धेतिट धा-ने
-. धिरधिर किटतक तिरकिट ता-तिर
+. तिट कत गदी गने धात्रक धेतिट धा-ने 
+धिरधिर किटतक तिरकिट ता-तिर
 `.trim().split(/\s+/);
 
 
@@ -197,6 +190,7 @@ function addButtons() {
 	    id: bols[i],
 	    click: function () { insertNote(this.id, "bols"); }
 	});
+	b.addClass("button-xsmall pure-button");
 	$("#bols").append(b);	    
     }
 
@@ -211,6 +205,7 @@ function addButtons() {
 	    id: phrases[i],
 	    click: function () { insertNote(this.id, "phrases"); }
 	});
+	b.addClass("button-xsmall pure-button");
 	$("#phrases").append(b);	    
     }
 }
