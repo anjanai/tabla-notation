@@ -1,11 +1,18 @@
 var tabla_bols = {};
 var vishwa_bols = {};
+var english_bols = {};
 var current_format = "devanagari"
 
+
 var bols = `
-. . कत् K4 कि K2 क्ड​ (K2D8) क K3 गे G1 गद् G3 गत् G3 ग G3 घे H1 घिं H2 घि H2 
-ता T1 तिं T2 तू T3 ति T4 तेत् T6 त्र T9 त T7 धा D1  धिं D2 धि D4 धेत् D6 धे D6 ध D6 
-दी D7 दिं D7 ना N1 ने N2 न n2 ट T8 ड D8 रा R1 र R1
+. . . कत् K4 kat    कि K2 ki	क्ड​ (K2D8) kDa	के K1 ke    क K3	ka
+    गे G1 ge 	 गद् G3 gad	गत् G3 gat 	ग G3 ga
+    घे H1 ghe	 घिं H2 ghin	घि H2 ghi 
+    ता T1 taa	 तिं T2 tin	तू T3 too	ति T4 ti
+    तेत् T6 tet	 त्र T9 tra	त T7 ta		धा D1 dhaa
+    धिं D2 dhin	 धि D4 dhi	धेत् D6 dhet	धे D6 dhe	ध D6 dha 
+    दी D7 di	 दिं D7 din  दि  D7 di  	ना N1 naa	ने N2 ne		न n2 na
+    ट T8 Ta 	 ड D8 Da	रा R1 raa	र R1 ra
 `.trim().split(/\s+/);
 
 var phrases = `
@@ -56,30 +63,6 @@ function vishwaLine(l, bols_per_beat) {
     return line;
 }
 
-function toVishwamohini() {
-    format = ($('input[name=format]:checked').val());
-    if (format == current_format) return;
-    current_format = "vishwamohini";
-
-    orig = $("#notation").val();
-    for (let key in tabla_bols) {
-	orig = orig.replace(new RegExp(key, "g"), tabla_bols[key]);
-    }
-    $("#notation").val(orig);
-}
-
-function toDevanagari() {
-    format = ($('input[name=format]:checked').val());
-    if (format == current_format) return;
-    current_format = "devanagari";
-
-    orig = $("#notation").val();
-    for (let key in vishwa_bols) {
-	orig = orig.replace(new RegExp(key, "g"), vishwa_bols[key]);
-    }
-    $("#notation").val(orig);
-}
-
 function copyVishwamohini() {
     createVishwamohini();
     console.log(navigator.clipboard.writeText($("#converted").html()));
@@ -98,11 +81,16 @@ function createNotation() {
     tbody.empty();
     var orig;
     orig = $("#notation").val().trim();
-    if (current_format != "devanagari") 
-	for (let key in vishwa_bols) {
-	    orig = orig.replace(new RegExp(key, "g"), vishwa_bols[key]);
-	}
     
+    format = ($('input[name=format]:checked').val());
+    console.log(format);
+    if (format === 'english') {
+	for (let key in tabla_bols) {
+	    orig = orig.replace(new RegExp(key, "g"), english_bols[key]);
+	}
+    }
+    
+
     var lines = orig.split("\n");
     var bols_per_beat = $("#bols_per_beat").val();
     
@@ -127,13 +115,21 @@ function createNotation() {
     
 }
 
+function createEnglishNottion() {
+    saveNotation();
+    orig = $("#notation").val().trim();
+    for (let key in tabla_bols) {
+	orig = orig.replace(new RegExp(key, "g"), english_bols[key]);
+    }
+    
+}
+
 function createVishwamohini() {
     saveNotation();
     orig = $("#notation").val().trim();
-    if (current_format == "devanagari") 
-	for (let key in tabla_bols) {
-	    orig = orig.replace(new RegExp(key, "g"), tabla_bols[key]);
-	}
+    for (let key in tabla_bols) {
+	orig = orig.replace(new RegExp(key, "g"), tabla_bols[key]);
+    }
 
     var bols_per_beat = $("#bols_per_beat").val();
     if (bols_per_beat <= 0)
@@ -178,13 +174,15 @@ function insertNote(id, span) {
 
 function addButtons() {
     var i=0;
-    for (i=0; i<bols.length; i+=2) {
+    for (i=0; i<bols.length; i+=3) {
 	if (bols[i] == '.') {
 	    $("#bols").append("<br>");
 	    continue;
 	}
 	tabla_bols[bols[i]] = bols[i+1];
 	vishwa_bols[bols[i+1]] = bols[i];
+	english_bols[bols[i]] = bols[i+2];
+	
 	var b = $('<button/>', {
 	    text: bols[i],
 	    id: bols[i],

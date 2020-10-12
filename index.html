@@ -31,9 +31,13 @@
       <br>Bols per beat: <input id="bols_per_beat" type="number" value="4"  style="width: 4em">
 
       </p>
-      
+
+
+
       <button onclick="createNotation()"> Create Formatted Text </button>
       <button onclick="copyNotation()">Copy Formatted text as HTML</button>
+      <input type="radio" id="devanagari" name="format" value="devanagari" checked>Devanagari</input>
+      <input type="radio" id="english" name="format" value="english">English</input>
       <button type="button" class="collapsible">Show Formatted Text</button>
       <div class="coll_content">
 	<table class=zui-table id=formatted border=1 cellspacing=0 ><tbody></tbody></table>
