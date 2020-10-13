@@ -29,27 +29,29 @@
 ति र कि ट   धिं - - त   धिं - धिं -   धा - - -
       </textarea>
       <br>Bols per beat: <input id="bols_per_beat" type="number" value="4"  style="width: 4em">
-
+      Beats per line:  <input id="beats_per_line" type="number" value="7"  style="width: 4em">
       </p>
 
 
 
-      <button onclick="createNotation()"> Create Formatted Text </button>
-      <button onclick="copyNotation()">Copy Formatted text as HTML</button>
       <input type="radio" id="devanagari" name="format" value="devanagari" checked>Devanagari</input>
       <input type="radio" id="english" name="format" value="english">English</input>
-      <button type="button" class="collapsible">Show Formatted Text</button>
+      <button  id="show_text" type="button" class="collapsible">Show Formatted Text</button>
       <div class="coll_content">
 	<table class=zui-table id=formatted border=1 cellspacing=0 ><tbody></tbody></table>
       </div>
+      <button onclick="copyNotation()">Copy Formatted text as HTML</button>
+      <button onclick="createNotation()"> Generate Formatted Text </button>
+
+      
 
       </p>
-      <button onclick="createVishwamohini()"> Create Vishwamohini Notation </button>
-      <button onclick="copyVishwamohini()">Copy Vishwamohini Notation</button>
       <button type="button" class="collapsible">Show Vishwamohini Notation</button>
       <div class="coll_content">
 	<pre><span id=converted></span></pre>
       </div>
+      <button onclick="copyVishwamohini()">Copy Vishwamohini Notation</button>
+      <button onclick="createVishwamohini()"> Generate Vishwamohini Notation </button>
       
       </article>
     <footer class="footer">

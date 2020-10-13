@@ -24,26 +24,29 @@ var phrases = `
 function saveNotation () {
     format = ($('input[name=format]:checked').val());
     txt = $("#notation").val();
-    localStorage.setItem("tabla-notation_format", format);
-    localStorage.setItem("tabla-notation_txt", txt);
+    localStorage.setItem("tabla_notation_format", format);
+    localStorage.setItem("tabla_notation", txt);
 }
 
-function vishwaLine(l, bols_per_beat) {
+function vishwaLine(l, bols_per_beat, beats_per_line) {
     //Replace numbers by -
     l = l.replace(/ \d /g, " - ");
     
     l = l.trim().split(/\s+/);
-   
-    line = "";
-    for (let i = 0, j=0; i < l.length; i++) {
-	//if (j++ == 0) markup += "<td>"
-	line += l[i] + " "
-	if (++j == bols_per_beat) {
-	    line += " | "
-	    j =0;
+    let lines = [];
+    let chunk = bols_per_beat * beats_per_line;
+    for (let i=0; i<l.length; i+=chunk) {
+	let temparray = l.slice(i,i+chunk);
+	let line = ""
+	for (let k=0; k<temparray.length; k+=bols_per_beat) {
+	    line += temparray.slice(k,k+bols_per_beat).join("");
+	    line += " | ";
 	}
+	line = line.replace(/\| $/, '');
+	lines.push(line);
     }
-    
+
+    /*
     //line = line.replace(/(-|\d)/g, '$1|');
     
     //Remove all the | chars inside brackets
@@ -59,8 +62,8 @@ function vishwaLine(l, bols_per_beat) {
     line = line.replace(/\)/g, ')|');
     
     line = line.replace(/\| $/, '');
-
-    return line;
+*/
+    return lines;
 }
 
 function copyVishwamohini() {
@@ -79,11 +82,10 @@ function createNotation() {
     saveNotation();
     tbody = $("#formatted tbody"); 
     tbody.empty();
-    var orig;
+    let orig;
     orig = $("#notation").val().trim();
     
     format = ($('input[name=format]:checked').val());
-    console.log(format);
     if (format === 'english') {
 	for (let key in tabla_bols) {
 	    orig = orig.replace(new RegExp(key, "g"), english_bols[key]);
@@ -91,13 +93,15 @@ function createNotation() {
     }
     
 
-    var lines = orig.split("\n");
-    var bols_per_beat = $("#bols_per_beat").val();
+    let lines = orig.split("\n");
+    let bols_per_beat = Number($("#bols_per_beat").val());
+    let beats_per_line = $("#beats_per_line").val();
+
     
     $.each(lines, function (i, line) {
 	line = line.trim().split(/\s+/);
 	markup = "<tr>";
-	for (let i = 0, j=0; i < line.length; i++) {
+	for (let i=0, j=0, k=0; i < line.length; i++) {
 	    if (j++ == 0) markup += "<td>"
 	    if (bols_per_beat > 0 || line[i] != "|") {
 		markup += line[i] + " ";
@@ -106,6 +110,11 @@ function createNotation() {
 		(bols_per_beat > 0 && j == bols_per_beat)) {
 		markup += "</td>"
 		j =0;
+		if (++k == beats_per_line) {
+		    markup += "</tr><tr>"
+		    k=0;
+		}
+		
 	    }
 	}
 	
@@ -131,13 +140,15 @@ function createVishwamohini() {
 	orig = orig.replace(new RegExp(key, "g"), tabla_bols[key]);
     }
 
-    var bols_per_beat = $("#bols_per_beat").val();
+    let bols_per_beat = Number($("#bols_per_beat").val());
+    let beats_per_line = $("#beats_per_line").val();
+    
     if (bols_per_beat <= 0)
 	repl = orig;
     else
 	repl = orig.replace(/\|/g, "");
     
-    var lines = repl.split("\n");
+    let lines = repl.split("\n");
     converted = "[melody start]\n" ;
 
     $.each(lines, function (i, line) {
@@ -147,8 +158,8 @@ function createVishwamohini() {
 	    return true;
 	}
 	
-	line = vishwaLine(line, bols_per_beat);
-        converted += "[" + line + "]" + " [tabla]" + "\n";
+	for (line of vishwaLine(line, bols_per_beat, beats_per_line))
+             converted += "[" + line + "]" + " [tabla]" + "\n";
     });
     
     converted += "\n[melody end]\n";
@@ -173,7 +184,7 @@ function insertNote(id, span) {
 
 
 function addButtons() {
-    var i=0;
+    let i=0;
     for (i=0; i<bols.length; i+=3) {
 	if (bols[i] == '.') {
 	    $("#bols").append("<br>");
@@ -183,7 +194,7 @@ function addButtons() {
 	vishwa_bols[bols[i+1]] = bols[i];
 	english_bols[bols[i]] = bols[i+2];
 	
-	var b = $('<button/>', {
+	let b = $('<button/>', {
 	    text: bols[i],
 	    id: bols[i],
 	    click: function () { insertNote(this.id, "bols"); }
@@ -192,13 +203,13 @@ function addButtons() {
 	$("#bols").append(b);	    
     }
 
-    var i=0;
+    i=0;
     for (i=0; i<phrases.length; i++) {
 	if (phrases[i] == '.') {
 	    $("#phrases").append("<br>");
 	    continue;
 	}
-	var b = $('<button/>', {
+	let b = $('<button/>', {
 	    text: phrases[i],
 	    id: phrases[i],
 	    click: function () { insertNote(this.id, "phrases"); }
@@ -212,13 +223,16 @@ function addButtons() {
 $(document).ready(function () {
     addButtons();
 
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
+    let coll = document.getElementsByClassName("collapsible");
+    let i;
     
     for (i = 0; i < coll.length; i++) {
 	coll[i].addEventListener("click", function() {
-	    var content = this.nextElementSibling;
-	    var txt = $(this).text().split(' ');
+	    let content = this.nextElementSibling;
+	    if ($(this).attr('id') == "show_text") createNotation();
+	    else createVishwamohini();
+	    
+	    let txt = $(this).text().split(' ');
 	    if (txt[0]=="Hide") txt[0] = "Show";
 	    else txt[0] = "Hide";
 	    txt = txt.join(' ')
@@ -244,9 +258,9 @@ $(document).ready(function () {
                 }
                 else if (this.selectionStart || this.selectionStart == '0') {
                     //For browsers like Firefox and Webkit based
-                    var startPos = this.selectionStart;
-                    var endPos = this.selectionEnd;
-                    var scrollTop = this.scrollTop;
+                    let startPos = this.selectionStart;
+                    let endPos = this.selectionEnd;
+                    let scrollTop = this.scrollTop;
                     this.value = this.value.substring(0, startPos) + myValue + this.value.substring(endPos, this.value.length);
                     this.focus();
                     this.selectionStart = startPos + myValue.length;
@@ -259,4 +273,11 @@ $(document).ready(function () {
             })
         }
     });
+    
+   $("#notation").on('change keyup paste', function() {
+	localStorage.setItem("tabla_notation", $(this).val());
+    });
+
+    $('#notation').val(localStorage.getItem('tabla_notation'));
+    $('tabla_notation_format').val(localStorage.getItem("tabla_notation_format"));
 });
