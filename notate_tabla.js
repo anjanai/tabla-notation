@@ -12,7 +12,7 @@ var bols = `
     तेत् T6 tet	 त्र T9 tra	त T7 ta		धा D1 dhaa
     धिं D2 dhin	 धि D4 dhi	धेत् D6 dhet	धे D6 dhe	ध D6 dha 
     दी D7 di	 दिं D7 din  दि  D7 di  	ना N1 naa	ने N2 ne		न n2 na
-    ट T8 Ta 	 ड D8 Da	रा R1 raa	र R1 ra
+    ट T8 Ta 	 डा D8 Daa ड D8 Da	रा R1 raa	र R1 ra
 `.trim().split(/\s+/);
 
 var phrases = `
