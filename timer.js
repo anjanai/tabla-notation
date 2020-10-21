@@ -29,7 +29,7 @@ function startTihai(table_num) {
 function colorNext(time) {
     if (stopped) return;
     td_array.eq(n++).addClass("mark");
-    if (n >= td_array.length) return;
+    if (n > td_array.length) return;
     setTimeout(colorNext.bind(null, time), time);
     beep.play(); 
 }
