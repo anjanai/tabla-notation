@@ -5,10 +5,18 @@
     <script
       src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
+
+	function get_duration() {
+	let bpm=60;
+	let d =  (33 * 7 * 60000)/bpm;
+	console.log(d);
+	return d;
+	}
+	
       $(document).ready(function(){
       $('body,html').animate({ 
       scrollTop: $(document).height()-$(window).height()}, 
-      60000
+	get_duration()
       );
       });
     </script>

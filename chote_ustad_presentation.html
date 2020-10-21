@@ -3,10 +3,34 @@
   <head>
     <title>Chote Ustad Rupak Presentation  </title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <script
+      src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+      <script>
+	function get_duration() {
+	let bpm=60;
+	let d =  (24 * 7 * 60000)/bpm;
+	console.log(d);
+	return d;
+	}
+	
+      $(document).ready(function(){
+      $('body,html').animate({ 
+      scrollTop: $(document).height()-$(window).height()}, 
+      get_duration()
+      );
+      });
+    </script>
     <style>
       @media print {
       p {page-break-after: always;}
       }
+      td {
+      #font-size: 50px;
+      }
+      table, th, td {
+      border: 1px solid black;
+      }
+      
       .wrapper {
   max-width: 1000px;
   margin: 0 20px;

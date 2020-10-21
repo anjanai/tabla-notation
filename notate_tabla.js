@@ -1,6 +1,7 @@
-var tabla_bols = {};
-var vishwa_bols = {};
-var english_bols = {};
+var tabla_bols = {};		// कत् -> K4
+var vishwa_bols = {};		// K4 -> कत्
+var english_bols = {};		// कत् -> kat
+var hindi_bols = {};		// kat -> कत् 
 var current_format = "devanagari"
 
 
@@ -133,9 +134,20 @@ function createEnglishNottion() {
     
 }
 
+
+
 function createVishwamohini() {
     saveNotation();
     orig = $("#notation").val().trim();
+
+    first_letter = orig[0];
+    if (first_letter.match(/[a-z]/i)) {
+	for (let key in hindi_bols) {
+	    orig = orig.replace(new RegExp(key, "g"), hindi_bols[key]);
+	}
+    }
+	
+    console.log(orig);
     for (let key in tabla_bols) {
 	orig = orig.replace(new RegExp(key, "g"), tabla_bols[key]);
     }
@@ -193,6 +205,7 @@ function addButtons() {
 	tabla_bols[bols[i]] = bols[i+1];
 	vishwa_bols[bols[i+1]] = bols[i];
 	english_bols[bols[i]] = bols[i+2];
+	hindi_bols[ bols[i+2]] = bols[i];
 	
 	let b = $('<button/>', {
 	    text: bols[i],
