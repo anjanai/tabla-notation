@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tihai with a metronome  </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+      @media print {
+      p {page-break-after: always;}
+      }
+      table, th, td {
+      border: 1px solid black;
+      }
+
+      .mark {background-color: pink;}
+      .tihai1 {background-color: yellow;}
+      .tihai2 {background-color: orange;}
+      
+      .wrapper {
+  max-width: 1000px;
+  margin: 0 20px;
+  display: grid;
+      grid-gap: 10px;
+      font-size: 25px;
+}
+    </style>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+      crossorigin="anonymous"></script>
+    <script src=timer.js></script>
+  </head>
+  <body>
+    <div class="wrapper">
+    <h1> Tihai with a metronome </h1>
+      <div>
+      <button type="button" class="btn btn-success" onclick="startTihai(1)">Start Tihai</button>
+      <label  class="btn btn-secondary active" for="bpm1">Bpm:</label>
+      <input type="number" id="bpm1" name="bmp1" min="10" max="500" value="100">
+      <button type="button" class="btn btn-danger" onclick="stopTihai();">Stop Tihai</button>
+      </div>
+      
+    <table id=table1 class="table-success"><tbody>
+<tr><td>dhaa </td><td>- </td><td>dhaa </td><td>ge </td><td>naa </td><td>dhaa </td></tr>
+<tr><td>- </td><td>dhaa </td><td>ti </td><td>dhaa </td><td>ge </td><td>dhin </td><td>naa </td><td>ge </td><td>naa </td><td>dhaa </td></tr><tr></tr>
+<tr><td>- </td><td>dhaa </td><td>- </td><td>dhaa </td><td>- </td><td>ta </td><td>dhaa </td></tr>
+<tr><td>- </td><td>dhaa </td><td>- </td><td>dhaa </td><td>- </td><td>ta </td><td>dhaa </td></tr>
+<tr><td>- </td><td>dhaa </td><td>- </td><td>dhaa </td><td>- </td><td>ta </td><td>dhaa </td><td>- </td></tr>
+    </tbody></table>
+
+    <hr></hr>
+    The same thing now two beats at a time
+    
+      <div>
+      <button type="button" class="btn btn-success" onclick="startTihai(2)">Start Tihai</button>
+      <label  class="btn btn-secondary active" for="bpm2">Bpm:</label>
+      <input type="number" id="bpm2" name="bmp2" min="10" max="500" value="60">
+      <button type="button" class="btn btn-danger" onclick="stopTihai();">Stop Tihai</button>
+      </div>
+      
+      <table class="table-info" id="table2">
+	<tbody><tr><td>dhaa - </td><td>dhaa ge </td><td>naa dhaa </td></tr>
+<tr><td>- dhaa </td><td>ti dhaa </td><td>ge dhin </td><td>naa ge </td><td>naa dhaa </td></tr>
+<tr><td>- dhaa </td><td>- dhaa </td><td>- ta </td></tr>
+<tr><td>dhaa - </td><td>dhaa - </td><td>dhaa - </td><td>ta dhaa </td></tr>
+<tr><td>- dhaa </td><td>- dhaa </td><td>- ta </td><td>dhaa - </td></tr>
+	</tbody></table>
+
+
+          <hr></hr>
+    The same thing now four beats at a time
+
+      <div>
+      <button type="button" class="btn btn-success" onclick="startTihai(3)">Start Tihai</button>
+      <label  class="btn btn-secondary active" for="bpm3">Bpm:</label>
+      <input type="number" id="bpm3" name="bmp3" min="10" max="500" value="40">
+      <button type="button" class="btn btn-danger" onclick="stopTihai();">Stop Tihai</button>
+      </div>
+      
+
+      
+      <table class="table-warning" id="table3">
+	<tbody><tr><td>dhaa - dhaa ge </td><td>naa dhaa - dhaa </td><td>ti dhaa ge dhin </td><td>naa ge naa dhaa </td><td>- dhaa - dhaa </td><td>- ta dhaa - </td><td>dhaa - dhaa - </td></tr><tr><td>ta dhaa - dhaa </td><td>- dhaa - ta </td><td>dhaa - </td></tr>
+</tbody></table>
+
+              <hr></hr>
+
+Adding two more instances of this to get the full tihai:
+
+      <div>
+      <button type="button" class="btn btn-success" onclick="startTihai(4)">Start Tihai</button>
+      <label  class="btn btn-secondary active" for="bpm4">Bpm:</label>
+      <input type="number" id="bpm4" name="bmp4" min="10" max="500" value="40">
+      <button type="button" class="btn btn-danger" onclick="stopTihai();">Stop Tihai</button>
+      </div>
+
+
+
+        <table class="table-info" id="table4"><tbody><tr><td>dhaa - dhaa ge </td><td>naa dhaa - dhaa </td><td>ti dhaa ge dhin </td><td>naa ge naa dhaa </td><td>- dhaa - dhaa </td><td>- ta dhaa - </td><td>dhaa - dhaa - </td></tr><tr><td>ta dhaa - dhaa </td><td>- dhaa - ta </td><td>dhaa - <span class="tihai1">dhaa - </span></td><td> <span class="tihai1">dhaa ge naa dhaa </span></td><td> <span class="tihai1">- dhaa ti dhaa </span></td><td> <span class="tihai1">ge dhin naa ge </span></td><td> <span class="tihai1">naa dhaa - dhaa </span></td></tr><tr><td> <span class="tihai1">- dhaa - ta </span></td><td> <span class="tihai1">dhaa - dhaa - </span></td><td> <span class="tihai1">dhaa - ta dhaa </span></td><td> <span class="tihai1">- dhaa - dhaa </span></td><td> <span class="tihai1">- ta dhaa - </span></td><td> <span class="tihai1"><span class="tihai2">dhaa - dhaa ge </span></span></td><td> <span class="tihai2">naa dhaa - dhaa </span></td></tr><tr><td> <span class="tihai2">ti dhaa ge dhin </span></td><td> <span class="tihai2">naa ge naa dhaa </span></td><td> <span class="tihai2">- dhaa - dhaa </span></td><td> <span class="tihai2">- ta dhaa - </span></td><td> <span class="tihai2">dhaa - dhaa - </span></td><td> <span class="tihai2">ta dhaa - dhaa </span></td><td> <span class="tihai2">- dhaa - ta </span></td></tr><tr><td> <span class="tihai2">dhaa - </span></td></tr></tbody></table>
+
+    </div>
+
+
+  </body>
+</html>
