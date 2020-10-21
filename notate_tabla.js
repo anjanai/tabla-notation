@@ -21,6 +21,16 @@ var phrases = `
 धिरधिर किटतक तिरकिट ता-तिर
 `.trim().split(/\s+/);
 
+function makeTihai () {
+    let orig = $("#notation").val().trim();
+    tihai = orig + " <spanclass=tihai1>" + orig + " <spanclass=tihai2>" + orig;
+    $("#notation").val(tihai);
+    createNotation();
+    html = document.getElementById("formatted").outerHTML;
+    console.log(navigator.clipboard.writeText(html));
+    $("#notation").val(orig);
+    saveNotation();
+}
 
 function saveNotation () {
     format = ($('input[name=format]:checked').val());
@@ -120,9 +130,21 @@ function createNotation() {
 	}
 	
 	markup += "</tr>\n";
+	if (markup.includes("tihai"))
+	    markup = colorTihai(markup); 
 	tbody.append(markup); 
     });
     
+}
+
+function colorTihai(str) {
+    str = str.replace(/spanclass/g, "span class");
+    let parts = str.match(/(.*tihai1)(.*)(tihai2.*)/);
+
+    console.log(parts[2]);
+    let tihai2 = parts[2].replace(/<td>/g, "<td> <span class=tihai1>");
+    let tihai3 = parts[3].replace(/<td>/g, "<td> <span class=tihai2>");
+    return (parts[1]+ tihai2 + tihai3);
 }
 
 function createEnglishNottion() {

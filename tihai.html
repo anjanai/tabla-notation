@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tihai explained  </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+      @media print {
+      p {page-break-after: always;}
+      }
+      table, th, td {
+      border: 1px solid black;
+      }
+
+      .mark {background-color: pink;}
+      .tihai1 {background-color: yellow;}
+      .tihai2 {background-color: orange;}
+      
+      .wrapper {
+  max-width: 1000px;
+  margin: 0 20px;
+  display: grid;
+      grid-gap: 10px;
+      font-size: 25px;
+}
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      dhaa - dhaa ge naa dhaa - (7 bols)</br>
+      dhaa ti dhaa ge dhin naa ge naa dhaa - (10 bols)</br>
+      dhaa - dhaa - ta dhaa - (7 bols)</br>
+      dhaa - dhaa - ta dhaa - (7 bols)</br>
+      dhaa - dhaa - ta dhaa - (7 bols)</br>
+</br>
+Total = 7 + 10 + 7+7+7 = 10 + 7*4 = 10 + 28 = 38 bols in one iteration</br>
+
+<table class="table-primary"><tbody><tr><td>1 </td><td>2 </td><td>3 </td><td>4 </td><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td></tr><tr></tr>
+<tr><td>dhaa </td><td>- </td><td>dhaa </td><td>ge </td><td>naa </td><td>dhaa </td><td class=mark>- </td></tr>
+<tr><td>dhaa </td><td>ti </td><td>dhaa </td><td>ge </td><td>dhin </td><td>naa </td><td>ge </td><td>naa </td><td>dhaa </td><td>- </td></tr><tr></tr>
+<tr><td>dhaa </td><td>- </td><td>dhaa </td><td>- </td><td>ta </td><td>dhaa </td><td class=mark>- </td></tr>
+<tr><td>dhaa </td><td>- </td><td>dhaa </td><td>- </td><td>ta </td><td>dhaa </td><td class=mark>- </td></tr>
+<tr><td>dhaa </td><td>- </td><td>dhaa </td><td>- </td><td>ta </td><td>dhaa </td><td>- </td></tr>
+</tbody></table>
+
+Changing things slightly: we remove the "-" (the gap) at the end of each line and put it in the beginning of the next line:
+<table class="table-primary"><tbody><tr><td>1 </td><td>2 </td><td>3 </td><td>4 </td><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td></tr><tr></tr>
+<tr><td>dhaa </td><td>- </td><td>dhaa </td><td>ge </td><td>naa </td><td>dhaa </td></tr>
+<tr><td>- </td><td>dhaa </td><td>ti </td><td>dhaa </td><td>ge </td><td>dhin </td><td>naa </td><td>ge </td><td>naa </td><td>dhaa </td></tr><tr></tr>
+<tr><td>- </td><td>dhaa </td><td>- </td><td>dhaa </td><td>- </td><td>ta </td><td>dhaa </td></tr>
+<tr><td>- </td><td>dhaa </td><td>- </td><td>dhaa </td><td>- </td><td>ta </td><td>dhaa </td></tr>
+<tr><td>- </td><td>dhaa </td><td>- </td><td>dhaa </td><td>- </td><td>ta </td><td>dhaa </td><td>- </td></tr>
+</tbody></table>
+
+Changing things even more, so that each row has an even number of bols:
+<table class="table-primary"><tbody><tr><td>1 </td><td>2 </td><td>3 </td><td>4 </td><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td></tr><tr></tr>
+<tr><td>dhaa </td><td>- </td><td>dhaa </td><td>ge </td><td>naa </td><td>dhaa </td></tr>
+<tr><td>- </td><td>dhaa </td><td>ti </td><td>dhaa </td><td>ge </td><td>dhin </td><td>naa </td><td>ge </td><td>naa </td><td>dhaa </td></tr><tr></tr>
+<tr><td>- </td><td>dhaa </td><td>- </td><td>dhaa </td><td>- </td><td>ta </td><td class=mark>dhaa </td></tr>
+<tr><td>- </td><td>dhaa </td><td>- </td><td>dhaa </td><td>- </td><td>ta </td><td>dhaa </td></tr>
+<tr><td>- </td><td>dhaa </td><td>- </td><td>dhaa </td><td>- </td><td>ta </td><td>dhaa </td><td>- </td></tr>
+</tbody></table>
+
+This is what we get:
+<table class="table-primary"><tbody><tr><td>1 </td><td>2 </td><td>3 </td><td>4 </td><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td></tr><tr></tr>
+<tr><td>dhaa </td><td>- </td><td>dhaa </td><td>ge </td><td>naa </td><td>dhaa </td></tr>
+<tr><td>- </td><td>dhaa </td><td>ti </td><td>dhaa </td><td>ge </td><td>dhin </td><td>naa </td><td>ge </td><td>naa </td><td>dhaa </td></tr><tr></tr>
+<tr><td>- </td><td>dhaa </td><td>- </td><td>dhaa </td><td>- </td><td>ta </td><td>dhaa </td><td>- </td></tr>
+<tr><td>dhaa </td><td>- </td><td>dhaa </td><td>- </td><td>ta </td><td>dhaa </td></tr>
+<tr><td>- </td><td>dhaa </td><td>- </td><td>dhaa </td><td>- </td><td>ta </td><td>dhaa </td><td>- </td></tr>
+</tbody></table>
+
+Combining the bols two at a time:
+<table class="table-success"><tbody><tr><td>1 2 </td><td>3 4 </td><td>5 6 </td><td>7 8 </td><td>9 10 </td></tr>
+<tr><td>dhaa - </td><td>dhaa ge </td><td>naa dhaa </td></tr>
+<tr><td>- dhaa </td><td>ti dhaa </td><td>ge dhin </td><td>naa ge </td><td>naa dhaa </td></tr>
+<tr><td>- dhaa </td><td>- dhaa </td><td>- ta </td><td>dhaa - </td></tr>
+<tr><td>dhaa - </td><td>dhaa - </td><td>ta dhaa </td></tr>
+    <tr><td>- dhaa </td><td>- dhaa </td><td>- ta </td><td>dhaa - </td></tr>
+</tbody></table> 
+Reformatting this so that we have 14 bols in one line:
+    <table class=table-danger><tbody><tr><td>1 2 </td><td>3 4 </td><td>5 6 </td><td>7 8 </td><td>9 10 </td><td>11 12 </td><td>13 14 </td></tr><tr></tr>
+<tr><td>dhaa - </td><td>dhaa ge </td><td>naa dhaa </td><td>- dhaa </td><td>ti dhaa </td><td>ge dhin </td><td>naa ge </td></tr><tr><td>naa dhaa </td><td>- dhaa </td><td>- dhaa </td><td>- ta </td><td>dhaa - </td><td>dhaa - </td><td>dhaa - </td></tr><tr><td>ta dhaa </td><td>- dhaa </td><td>- dhaa </td><td>- ta </td><td>dhaa - </td></tr>
+    </tbody></table>
+
+    <table class="table-success"><tbody><tr><td>dhaa - dhaa ge </td><td>naa dhaa - dhaa </td><td>ti dhaa ge dhin </td><td>naa ge naa dhaa </td><td>- dhaa - dhaa </td><td>- ta dhaa - </td><td>dhaa - dhaa - </td></tr><tr><td>ta dhaa - dhaa </td><td>- dhaa - ta </td><td>dhaa - </td></tr>
+    </tbody></table>
+
+    Doing this two more times:
+    
+    <table class="table-info" id="formatted"><tbody><tr><td>dhaa - dhaa ge </td><td>naa dhaa - dhaa </td><td>ti dhaa ge dhin </td><td>naa ge naa dhaa </td><td>- dhaa - dhaa </td><td>- ta dhaa - </td><td>dhaa - dhaa - </td></tr><tr><td>ta dhaa - dhaa </td><td>- dhaa - ta </td><td>dhaa - <span class="tihai1">dhaa - </span></td><td> <span class="tihai1">dhaa ge naa dhaa </span></td><td> <span class="tihai1">- dhaa ti dhaa </span></td><td> <span class="tihai1">ge dhin naa ge </span></td><td> <span class="tihai1">naa dhaa - dhaa </span></td></tr><tr><td> <span class="tihai1">- dhaa - ta </span></td><td> <span class="tihai1">dhaa - dhaa - </span></td><td> <span class="tihai1">dhaa - ta dhaa </span></td><td> <span class="tihai1">- dhaa - dhaa </span></td><td> <span class="tihai1">- ta dhaa - </span></td><td> <span class="tihai1"><span class="tihai2">dhaa - dhaa ge </span></span></td><td> <span class="tihai2">naa dhaa - dhaa </span></td></tr><tr><td> <span class="tihai2">ti dhaa ge dhin </span></td><td> <span class="tihai2">naa ge naa dhaa </span></td><td> <span class="tihai2">- dhaa - dhaa </span></td><td> <span class="tihai2">- ta dhaa - </span></td><td> <span class="tihai2">dhaa - dhaa - </span></td><td> <span class="tihai2">ta dhaa - dhaa </span></td><td> <span class="tihai2">- dhaa - ta </span></td></tr><tr><td> <span class="tihai2">dhaa - </span></td></tr></tbody></table>
+
+    <br>
+    That's it!
+           </div>
+
+
+
+  </body>
+</html>
