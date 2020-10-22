@@ -4,10 +4,6 @@ var lehera_bpm = 50;
 var lehera = new Audio('roopak_lehera_50.mp3');;
 var stopped = false;
 
-function startTihai() {
-    lehera.play();
-}
-
 function stopTihai() {
     stopped = true;
     $("table tbody tr td").removeClass("mark");
@@ -25,21 +21,25 @@ function startTihai(table_num) {
     // 60,000 / bpm = Ms
     let time = 60000/bpm;
     colorNext(time, repeat);
-    lehera.playbackRate = bpm/lehera_bpm;
-    console.log (lehera.playbackRate);
     lehera.loop = 1;
     lehera.currentTime = 0;
+    lehera.playbackRate = bpm/lehera_bpm;    
     lehera.play();
 }
 
+
 function colorNext(time, repeat) {
     if (stopped) return;
+    if (n == 0) 	lehera.currentTime = 0;
+
     td_array.eq(n++).addClass("mark");
-    if (n > td_array.length) {
+    if (n == td_array.length) {
 	repeat--;
-	if (repeat == 0) return stopTihai();
+	if (repeat == 0)  stopTihai();
 	n=0;
-	$("table tbody tr td").removeClass("mark");
-    }    
-    setTimeout(colorNext.bind(null, time, repeat), time, repeat);
+	setTimeout(function() {
+	    $("table tbody tr td").removeClass("mark");
+	}, 100);
+    }
+    setTimeout(colorNext, time, time, repeat);
 }
