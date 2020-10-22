@@ -9,27 +9,32 @@ function stopTihai() {
 	clearTimeout(timeouts[i]);
     }
     stopped = true;
+    $("table tbody tr td").removeClass("mark");
+
 }
 
 function startTihai(table_num) {
     stopTihai();
     stopped = false;
     n = 0;
-    let table = "#table" + table_num + " tbody tr td";
+    td_array = $("#table" + table_num + " tbody tr td");
     let bpm = $("#bpm"+table_num).val();
+    let repeat = $("#repeat"+table_num).val();
 
     // 60,000 / bpm = Ms
-    
     let time = 60000/bpm;
-    $(table).removeClass("mark");
-    td_array = $(table);;
-    colorNext(time);
+    colorNext(time, repeat);
 }
 
-function colorNext(time) {
+function colorNext(time, repeat) {
     if (stopped) return;
     td_array.eq(n++).addClass("mark");
-    if (n > td_array.length) return;
-    setTimeout(colorNext.bind(null, time), time);
+    if (n > td_array.length) {
+	repeat--;
+	if (repeat == 0) return stopTihai();
+	n=0;
+	$("table tbody tr td").removeClass("mark");
+    }
+    setTimeout(colorNext.bind(null, time, repeat), time, repeat);
     beep.play(); 
 }
