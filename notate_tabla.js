@@ -1,18 +1,15 @@
-var tabla_bols = {};		// कत् -> K4
-var vishwa_bols = {};		// K4 -> कत्
-var english_bols = {};		// कत् -> kat
-var hindi_bols = {};		// kat -> कत् 
 var current_format = "devanagari"
 
+var locallyStored = `notation tabla_notation_format bols_per_beat beats_per_line`.trim().split(/\s+/);
 
 var bols = `
-. . . कत् K4 kat    कि K2 ki	क्ड​ (K2D8) kDa	के K1 ke    क K3	ka
+कत् K4 kat    कि K2 ki	क्ड​ (K2D8) kDa	के K1 ke    क K3	ka
     गे G1 ge 	 गद् G3 gad	गत् G3 gat 	ग G3 ga
     घें H1 ghen घे H1 ghe	 घिं H2 ghin	घि H2 ghi 
     ता T1 taa	 तिं T2 tin	तू T3 too	ति T4 ti
     तेत् T6 tet	 त्र T9 tra	त T7 ta		धा D1 dhaa
     धिं D2 dhin	 धि D4 dhi	धेत् D6 dhet	धे D6 dhe	ध D6 dha 
-    दी D7 di	 दिं D7 din  दि  D7 di  	ना N1 naa	ने N2 ne		न n2 na
+     दिं D7 din  दि  D7 di दी D7 di   	ना N1 naa	ने N2 ne		न n2 na
     ट T8 Ta 	 डा D8 Daa ड D8 Da	रा R1 raa	र R1 ra
 `.trim().split(/\s+/);
 
@@ -34,9 +31,11 @@ function makeTihai () {
 
 function saveNotation () {
     format = ($('input[name=format]:checked').val());
-    txt = $("#notation").val();
-    localStorage.setItem("tabla_notation_format", format);
-    localStorage.setItem("tabla_notation", txt);
+    for (item of locallyStored) {
+	localStorage.setItem(item, $("#"+item).val());
+    }
+    //localStorage.setItem("tabla_notation_format", format);
+
 }
 
 function vishwaLine(l, bols_per_beat, beats_per_line) {
@@ -88,20 +87,32 @@ function copyNotation() {
     console.log(navigator.clipboard.writeText(html));
 }
 
+function copyNotationText() {
+    //createNotation();
+    let txt = document.getElementById("formatted").innerHTML;
+    txt = txt.replace (/<.tr>\s+<tr><td><.td><.tr>/g, "__BR__");
+    txt = txt.replace (/<.td>/g, "|");
+    txt = txt.replace(/<.*?>/g, " ");
+    txt = txt.replace(/\|/g, "\t|");
+    txt = txt.replace(/^\s+/gm, ""); // m matches the beginning of each line a multi-line string
+    txt = txt.replace(/__BR__/g, "\n");
+    navigator.clipboard.writeText(txt);
+}
+
 
 function createNotation() {
     saveNotation();
     tbody = $("#formatted tbody"); 
     tbody.empty();
-    let orig;
-    orig = $("#notation").val().trim();
+    let orig = $("#notation").val().trim();
+    orig = orig.replace(/\|/g, '');
+    let format = ($('input[name=format]:checked').val());
     
-    format = ($('input[name=format]:checked').val());
-    if (format === 'english') {
-	for (let key in tabla_bols) {
-	    orig = orig.replace(new RegExp(key, "g"), english_bols[key]);
-	}
-    }
+    first_letter = orig[0];
+    if (first_letter.match(/[a-z]/i) && format !== 'english')
+	orig = engToHindi(orig);
+    if (format === 'english' && !first_letter.match(/[a-z]/i) ) 
+	orig = hinToEnglish(orig);
     
 
     let lines = orig.split("\n");
@@ -147,32 +158,16 @@ function colorTihai(str) {
     return (parts[1]+ tihai2 + tihai3);
 }
 
-function createEnglishNottion() {
-    saveNotation();
-    orig = $("#notation").val().trim();
-    for (let key in tabla_bols) {
-	orig = orig.replace(new RegExp(key, "g"), english_bols[key]);
-    }
-    
-}
-
-
 
 function createVishwamohini() {
     saveNotation();
     orig = $("#notation").val().trim();
 
     first_letter = orig[0];
-    if (first_letter.match(/[a-z]/i)) {
-	for (let key in hindi_bols) {
-	    orig = orig.replace(new RegExp(key, "g"), hindi_bols[key]);
-	}
-    }
-	
-    console.log(orig);
-    for (let key in tabla_bols) {
-	orig = orig.replace(new RegExp(key, "g"), tabla_bols[key]);
-    }
+    if (first_letter.match(/[a-z]/i)) 
+	orig = engToVishwa (orig);
+    else 
+	orig = hinToVishwa (orig);
 
     let bols_per_beat = Number($("#bols_per_beat").val());
     let beats_per_line = $("#beats_per_line").val();
@@ -202,33 +197,36 @@ function createVishwamohini() {
 }
 
 function insertNote(id, span) {
-    console.log (span);
-    format = ($('input[name=format]:checked').val());
-    if (format == "vishwamohini") {
-	if (span == "bols") 
-	    id = tabla_bols[id];
-	else {
-	    for (let key in tabla_bols) {
-		id = id.replace(new RegExp(key, "g"), tabla_bols[key]);
-	    }
-	}
-    }
     $("#notation").insertAtCaret(id);
 }
 
+function engToHindi (orig) {
+    for (i=0; i<bols.length; i+=3)
+	orig = orig.replace(new RegExp(bols[i+2], "g"), bols[i]);
+    return orig;
+}
 
+function hinToEnglish (orig) {
+    for (i=0; i<bols.length; i+=3)
+	orig = orig.replace(new RegExp(bols[i], "g"), bols[i+2]);
+    return orig;
+}
+
+
+function engToVishwa (orig) {
+    for (i=0; i<bols.length; i+=3)
+	orig = orig.replace(new RegExp(bols[i+2], "g"), bols[i+1]);
+    return orig;
+}
+
+function hinToVishwa (orig) {
+    for (i=0; i<bols.length; i+=3)
+	orig = orig.replace(new RegExp(bols[i], "g"), bols[i+1]);
+    return orig;
+}
 function addButtons() {
     let i=0;
     for (i=0; i<bols.length; i+=3) {
-	if (bols[i] == '.') {
-	    $("#bols").append("<br>");
-	    continue;
-	}
-	tabla_bols[bols[i]] = bols[i+1];
-	vishwa_bols[bols[i+1]] = bols[i];
-	english_bols[bols[i]] = bols[i+2];
-	hindi_bols[ bols[i+2]] = bols[i];
-	
 	let b = $('<button/>', {
 	    text: bols[i],
 	    id: bols[i],
@@ -313,6 +311,8 @@ $(document).ready(function () {
 	localStorage.setItem("tabla_notation", $(this).val());
     });
 
-    $('#notation').val(localStorage.getItem('tabla_notation'));
-    $('tabla_notation_format').val(localStorage.getItem("tabla_notation_format"));
+    for (item of locallyStored) {
+	$("#"+item).val(localStorage.getItem(item));
+    }
+
 });
