@@ -6,7 +6,7 @@ var bols = `
 कत् K4 kat    कि K2 ki	-क्ड (--K2D8) -kDa क्ड (K2D8) kDa	के K1 ke    क K3	ka
     गे G1 ge 	 गद् G3 gad	गत् G3 gat 	ग G3 ga
     घें H1 ghen घे H1 ghe	 घिं H2 ghin	घि H2 ghi 
-    ता T1 taa	 तिं T2 tin	तू T3 too	ति T4 ti
+    ता T1 taa	 तिं T2 tin	तू T3 too  तित् T4 tit	ति T4 ti
     तेत् T6 tet	 त्र T9 tra	त T7 ta		धा D1 dhaa
     धिं D2 dhin	 धि D4 dhi	धेत् D6 dhet	धे D4 dhe	ध D4 dha 
      दिं D7 din  दि  D7 di दी D7 di   	ना N1 naa	ने N2 ne		न n2 na
