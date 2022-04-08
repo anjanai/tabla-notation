@@ -3,12 +3,12 @@ var current_format = "devanagari"
 var locallyStored = `notation tabla_notation_format bols_per_beat beats_per_line`.trim().split(/\s+/);
 
 var bols = `
-कत् K4 kat    कि K2 ki	क्ड​ (K2D8) kDa	के K1 ke    क K3	ka
+कत् K4 kat    कि K2 ki	-क्ड (--K2D8) -kDa क्ड (K2D8) kDa	के K1 ke    क K3	ka
     गे G1 ge 	 गद् G3 gad	गत् G3 gat 	ग G3 ga
     घें H1 ghen घे H1 ghe	 घिं H2 ghin	घि H2 ghi 
-    ता T1 taa	 तिं T2 tin	तू T3 too	ति T4 ti
+    ता T1 taa	 तिं T2 tin	तू T3 too  तित् T4 tit	ति T4 ti
     तेत् T6 tet	 त्र T9 tra	त T7 ta		धा D1 dhaa
-    धिं D2 dhin	 धि D4 dhi	धेत् D6 dhet	धे D6 dhe	ध D6 dha 
+    धिं D2 dhin	 धि D4 dhi	धेत् D6 dhet	धे D4 dhe	ध D4 dha 
      दिं D7 din  दि  D7 di दी D7 di   	ना N1 naa	ने N2 ne		न n2 na
     ट T8 Ta 	 डा D8 Daa ड D8 Da	रा R1 raa	र R1 ra
 `.trim().split(/\s+/);
@@ -90,7 +90,8 @@ function copyNotation() {
 function copyNotationText() {
     //createNotation();
     let txt = document.getElementById("formatted").innerHTML;
-    txt = txt.replace (/<.tr>\s+<tr><td><.td><.tr>/g, "__BR__");
+    txt = txt.replace (/<.tr><tr><td>/g, "__BR__");
+    console.log (txt);
     txt = txt.replace (/<.td>/g, "|");
     txt = txt.replace(/<.*?>/g, " ");
     txt = txt.replace(/\|/g, "\t|");
