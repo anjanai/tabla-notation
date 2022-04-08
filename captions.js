@@ -1,4 +1,6 @@
-const str  = `2;Theka
+const str  = `1; Get ready to play in the next cycle...
+
+2;Theka
 
 2;Kaida main theme
 धागे नाधा तीट तीट धागे तिंना केना 
@@ -16,28 +18,43 @@ const str  = `2;Theka
 धागेनाधा तीटतीट धागेतिंना केनाताके नाधातीट तीटधागे धिंनागेना
 धागेनाधा तीटतीट धागेतिंना केनाताके नाधातीट तीटधागे धिंनागेना
 
-2;Var  नाधा तीट धागे नाधा तीट तीट   MT
+2;Var  धागे नाधा तीट धागे नाधा तीट तीट   MT
 
 2;Var  धागे नाधा तीट धा- -धा तीट तीट    MT
 
 2;Var  धागे नाधा तीट धागे नाधा गेना तीट   MT
+
+2;Var  धागे नाधा तीट धाती टधा गेना तीट   MT
+
+2;Var  धागे नाधा गेना धाती टधा तीट तीट   MT 
+
+2;Var  तीट धागे नाधा तीट धागे नाधा तीट   MT
+
+2;Var  तीट धागे नाधा गेना धाती टधा तीट   MT
+
+4; Tihai:
+तीट धागे नाधा गेना धाती टधा तीट 
+धा- नेधा -ने  धा- 
+धा- नेधा -ने  धा- 
+धा- नेधा -ने  धा- 
+
 `;
 
 const cycles = str.split("\n\n");
 const bpm = 100;
 const beats = 14;
-const cycle_time = beats/bpm * 60 * 1000;
+const cycle_time = beats/bpm * 60 * 1000 - 111; // need the -111 for some reason... 
 console.log (cycle_time);
 
 const begin_time = {
     hh:0,
-    mm:55,
-    ss:06,
+    mm:0,
+    ss:0,
 };
 
 $(document).ready(function () {
     var d = new Date();
-    d.setHours(begin_time.hh, begin_time.mm, begin_time.ss);
+    d.setHours(begin_time.hh, begin_time.mm, begin_time.ss, 0);
     var html = "";
     let varnum=1;
     $.each(cycles, function (i, variation) {
