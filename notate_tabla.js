@@ -115,9 +115,20 @@ function createNotation() {
     if (format === 'english' && !first_letter.match(/[a-z]/i) ) 
 	orig = hinToEnglish(orig);
     
-
-    let lines = orig.split("\n");
     let bols_per_beat = Number($("#bols_per_beat").val());
+
+    if (isNaN(bols_per_beat)) {
+	const re = /(\d+)\/(\d+)/;
+	let frac = $("#bols_per_beat").val().match(re);
+	console.log (frac);
+	bols_per_beat = Number(frac[1]);
+	let gaps = Number(frac[2]) - 1;
+	orig = orig.split(/\s+/).join(" - ") + " -"; 
+	console.log (orig);
+	
+    }
+    
+    let lines = orig.split("\n");
     let beats_per_line = $("#beats_per_line").val();
 
     
