@@ -117,16 +117,38 @@ function createNotation() {
     
     let bols_per_beat = Number($("#bols_per_beat").val());
 
-    if (isNaN(bols_per_beat)) {
-	const re = /(\d+)\/(\d+)/;
-	let frac = $("#bols_per_beat").val().match(re);
+    let parts = $("#bols_per_beat").val().split(',');
+    console.log (parts);
+    $.each(parts, function (i, part) {
+	divideNotation(part, orig, tbody);
+    });
+
+    if (parts.length > 1) {
+	let arr  = [];
+	$("#formatted tbody td").each(function() {
+	    arr.push($(this).text());
+	});
+	let str = arr.join(' ');
+	tbody.empty();
+	divideNotation(whole_bpb, str, tbody);
+    }
+}
+
+let whole_bpb;
+
+function divideNotation(bols_per_beat, orig, tbody) {
+    const re = /(\d+)\/(\d+)/;
+    let frac = bols_per_beat.match(re);
+    if (frac) {
 	console.log (frac);
 	bols_per_beat = Number(frac[1]);
 	let gaps = Number(frac[2]) - 1;
 	orig = orig.split(/\s+/).join(" - ") + " -"; 
 	console.log (orig);
-	
+    } else {
+	whole_bpb = bols_per_beat;
     }
+
     
     let lines = orig.split("\n");
     let beats_per_line = $("#beats_per_line").val();
