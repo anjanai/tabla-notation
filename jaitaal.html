@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Jai Taal Compositions  </title>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+
+	function get_duration() {
+	let bpm=60;
+	let d =  (33 * 7 * 60000)/bpm;
+	console.log(d);
+	return d;
+	}
+
+      function changeScript() {
+    if ($('#button_changeScript').text() === "Change to Hindi") {
+	$( ".formatted_dev" ).show();
+	$( ".formatted_rom" ).hide();
+	$('#button_changeScript').text("Change to English");
+    } else {
+	$( ".formatted_dev" ).hide();
+	$( ".formatted_rom" ).show();
+	$('#button_changeScript').text("Change to Hindi");
+    }
+}
+	
+      $(document).ready(function(){
+	  changeScript();
+      $('body,html').animate({ 
+      scrollTop: $(document).height()-$(window).height()}, 
+	get_duration()
+      );
+      });
+    </script>
+    <style>
+      body {
+      margin: 10px;
+      font-family: 'Open Sans', 'sans-serif';
+      background-color: #fff;
+      color: #444;
+      }
+      .wrapper {
+      max-width: 1000px;
+      margin: 0 20px;
+      grid-gap: 20px;
+      }
+      .zui-table {
+      width: 100%;
+      border: solid 2px #DDEEFF;
+      border-collapse: collapse;
+      border-spacing: 0;
+      font: normal 13px Arial, sans-serif;
+      }
+      
+      .zui-table tbody td {
+      border: solid 1px #DDEEEE;
+      padding: 10px;
+      }
+      @media print {
+      p {page-break-after: always;}
+      }
+
+    </style>
+  </head>
+  <body >
+    <button id=button_changeScript onclick="changeScript()">Change to Hindi</button>
+    <div class="wrapper">
+      
+      <b> Tukda 1 </b>
+
+      <span id="formatted">
+	  <table class="zui-table formatted_rom" style=""><tbody><tr><td>dhaa ti dhaa - </td><td>dhaa ti dhaa - </td><td>dhaa ti dhaa - </td><td>ka ti Ta dhaa </td></tr><tr></tr>
+<tr><td>- ka ti Ta </td><td>dhaa - ka ti </td><td>Ta dhaa - taa </td><td>- dhaa - ta </td></tr><tr></tr>
+<tr><td>ki Ta dhaa - </td><td>taa - dhaa - </td><td>ta ki Ta dhaa </td><td>- taa - dhaa </td></tr><tr></tr>
+<tr><td>- ta ki Ta </td><td>dhaa - </td></tr>
+</tbody></table>
+	  <table class="zui-table formatted_dev" style="display: none;"><tbody><tr><td>धा ति धा - </td><td>धा ति धा - </td><td>धा ति धा - </td><td>क ति ट धा </td></tr><tr></tr>
+<tr><td>- क ति ट </td><td>धा - क ति </td><td>ट धा - ता </td><td>- धा - त </td></tr><tr></tr>
+<tr><td>कि ट धा - </td><td>ता - धा - </td><td>त कि ट धा </td><td>- ता - धा </td></tr><tr></tr>
+<tr><td>- त कि ट </td><td>धा - </td></tr>
+</tbody></table>
+	  </span>
+      
+      <b> Tukda 2 </b>
+<span id="formatted">
+	  <table class="zui-table formatted_rom" style="display: none;"><tbody><tr><td>dhaa ti Ta ka </td><td>- taa - ga </td><td>- di - ga </td><td>- ne dhaa - </td></tr><tr></tr>
+<tr><td>ta ki Ta dhaa </td><td>- di ga ne </td><td>dhaa - ta ki </td><td>Ta dhi ki Ta </td></tr><tr></tr>
+<tr><td>ka ta ga di </td><td>ga ne taa ghen </td><td>- ta dhaa - </td><td>ghen - ta dhaa </td></tr><tr></tr>
+<tr><td>- ghen - ta </td><td>dhaa - </td></tr>
+</tbody></table>
+	  <table class="zui-table formatted_dev" style=""><tbody><tr><td>धा ति ट क </td><td>- ता - ग </td><td>- दी - ग </td><td>- ने धा - </td></tr><tr></tr>
+<tr><td>त कि ट धा </td><td>- दि ग ने </td><td>धा - त कि </td><td>ट धि कि ट </td></tr><tr></tr>
+<tr><td>क त ग दि </td><td>ग ने ता घें </td><td>- त धा - </td><td>घें - त धा </td></tr><tr></tr>
+<tr><td>- घें - त </td><td>धा - </td></tr>
+</tbody></table>
+	  </span>      
+
+      <b> Tukda 3 </b>
+      <span id="formatted">
+	  <table class="zui-table formatted_rom" style=""><tbody><tr><td>kiTa taka dhet - </td><td>dhaa - taa kiTa </td><td>taka dhet - dhaa </td><td>- ki Ta taa </td></tr><tr></tr>
+<tr><td>ge ti Ta ka </td><td>ta ga di ga </td><td>ne ta ki Ta </td><td>dhi ki Ta ka </td></tr><tr></tr>
+<tr><td>ta ga di ga </td><td>ne taa - dhaa </td><td>- ta dhaa - </td><td>kat - ta dhaa </td></tr><tr></tr>
+<tr><td>- kat - ta </td><td>dhaa </td></tr>
+</tbody></table>
+	  <table class="zui-table formatted_dev" style="display: none;"><tbody><tr><td>किट तक धेत् - </td><td>धा - ता किट </td><td>तक धेत् - धा </td><td>- कि ट ता </td></tr><tr></tr>
+<tr><td>गे ति ट क </td><td>त ग दि ग </td><td>ने त कि ट </td><td>धि कि ट क </td></tr><tr></tr>
+<tr><td>त ग दि ग </td><td>ने ता - धा </td><td>- त धा - </td><td>कत् - त धा </td></tr><tr></tr>
+<tr><td>- कत् - त </td><td>धा </td></tr>
+</tbody></table>
+	  </span>
+
+     
+      <b> Tukda 4 </b>
+      <span id="formatted">
+	  <table class="zui-table formatted_rom" style=""><tbody><tr><td>dhaa ti Ta dhaa </td><td>dhaa ti Ta kDa </td><td>dhe ti Ta ka </td><td>ti Ta ghe ti </td></tr><tr></tr>
+<tr><td>Ta dhaa ge din </td><td>taa kiTa taka tira </td><td>kiTa taka taa tiTa </td><td>kata gadi gane dhaa </td></tr><tr></tr>
+<tr><td>1 2 dhaa 1 </td><td>2 dhaa - ta </td><td>dhaa - kat - </td><td>ta dhaa - kat </td></tr><tr></tr>
+<tr><td>- ta dhaa - </td><td>kat - </td></tr>
+</tbody></table>
+	  <table class="zui-table formatted_dev" style="display: none;"><tbody><tr><td>धा ति ट धा </td><td>धा ति ट क्ड </td><td>धे ति ट क </td><td>ति ट घे ति </td></tr><tr></tr>
+<tr><td>ट धा गे दिं </td><td>ता किट तक तिर </td><td>किट तक ता तिट </td><td>कत गदि गने धा </td></tr><tr></tr>
+<tr><td>१ २ धा १ </td><td>२ धा - त </td><td>धा - कत् - </td><td>त धा - कत् </td></tr><tr></tr>
+<tr><td>- त धा - </td><td>कत् - </td></tr>
+</tbody></table>
+	  </span>
+      
+      <b> Tukda 5 </b>
+      
+    </div>
+    
+  </body>
+</html>

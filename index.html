@@ -38,7 +38,10 @@
       <input type="radio" id="english" name="format" value="english">English</input>
       <button  id="show_text" type="button" class="collapsible">Show Formatted Text</button>
       <div class="coll_content">
-	<table class=zui-table id=formatted><tbody></tbody></table>
+	<span id=formatted>
+	  <table class="zui-table formatted_rom"><tbody></tbody></table>
+	  <table class="zui-table formatted_dev"><tbody></tbody></table>
+	  </span>
       </div>
       <button onclick="makeTihai()">Make Tihai</button>
 

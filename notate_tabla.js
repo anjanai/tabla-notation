@@ -2,13 +2,16 @@ var current_format = "devanagari"
 
 var locallyStored = `notation tabla_notation_format bols_per_beat beats_per_line`.trim().split(/\s+/);
 
-var bols = `
+var bols =
+   `
+१ 1 1 २ 2 2
+धेत् D6 dhet
 कत् K4 kat    कि K2 ki	-क्ड (--K2D8) -kDa क्ड (K2D8) kDa	के K1 ke    क K3	ka
     गे G1 ge 	 गद् G3 gad	गत् G3 gat 	ग G3 ga
     घें H1 ghen घे H1 ghe	 घिं H2 ghin	घि H2 ghi 
     ता T1 taa	 तिं T2 tin	तू T3 too  तित् T4 tit	ति T4 ti
     तेत् T6 tet	 त्र T9 tra	त T7 ta		धा D1 dhaa
-    धिं D2 dhin	 धि D4 dhi	धेत् D6 dhet	धे D4 dhe	ध D4 dha 
+    धिं D2 dhin	 धि D4 dhi		धे D4 dhe	ध D4 dha 
      दिं D7 din  दि  D7 di दी D7 di   	ना N1 naa	ने N2 ne		न n2 na
     ट T8 Ta 	 डा D8 Daa ड D8 Da	रा R1 raa	र R1 ra
 `.trim().split(/\s+/);
@@ -103,34 +106,52 @@ function copyNotationText() {
 
 function createNotation() {
     saveNotation();
-    tbody = $("#formatted tbody"); 
-    tbody.empty();
     let orig = $("#notation").val().trim();
     orig = orig.replace(/\|/g, '');
     let format = ($('input[name=format]:checked').val());
-    
+
+    if (format === "english") {
+	$( ".formatted_dev" ).hide();
+	$( ".formatted_rom" ).show();
+    } else {
+	$( ".formatted_rom" ).hide();
+	$( ".formatted_dev" ).show();
+    }
+	
     first_letter = orig[0];
-    if (first_letter.match(/[a-z]/i) && format !== 'english')
-	orig = engToHindi(orig);
-    if (format === 'english' && !first_letter.match(/[a-z]/i) ) 
-	orig = hinToEnglish(orig);
-    
+    if (first_letter.match(/[a-z]/i)) {
+	eng = orig;
+	hin = engToHindi(orig);
+    } else {
+	hin = orig;
+	eng = hinToEnglish(orig);
+    }
+          
+    tbody_rom = $(".formatted_rom tbody"); 
+    tbody_rom.empty();
+    tbody_dev = $(".formatted_dev tbody"); 
+    tbody_dev.empty();
+
     let bols_per_beat = Number($("#bols_per_beat").val());
 
     let parts = $("#bols_per_beat").val().split(',');
-    console.log (parts);
     $.each(parts, function (i, part) {
-	divideNotation(part, orig, tbody);
+	divideNotation(part, eng, tbody_rom);
+	divideNotation(part, hin, tbody_dev);
     });
 
+
+    // Todo - bols_per_beat is comma-separated value?? 
     if (parts.length > 1) {
 	let arr  = [];
-	$("#formatted tbody td").each(function() {
+	$("#formatted  td").each(function() {
 	    arr.push($(this).text());
 	});
 	let str = arr.join(' ');
-	tbody.empty();
-	divideNotation(whole_bpb, str, tbody);
+	tbody_dev.empty();
+	tbody_rom.empty();
+	divideNotation(whole_bpb, str, tbody_rom);
+	divideNotation(whole_bpb, str, tbody_dev);
     }
 }
 
