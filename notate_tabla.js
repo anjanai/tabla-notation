@@ -5,7 +5,6 @@ var locallyStored = `notation tabla_notation_format bols_per_beat beats_per_line
 var bols =
    `
 १ 1 1 २ 2 2
-धेत् D6 dhet
 कत् K4 kat    कि K2 ki	-क्ड (--K2D8) -kDa क्ड (K2D8) kDa	के K1 ke    क K3	ka
     गे G1 ge 	 गद् G3 gad	गत् G3 gat 	ग G3 ga
     घें H1 ghen घे H1 ghe	 घिं H2 ghin	घि H2 ghi 
@@ -174,10 +173,9 @@ function divideNotation(bols_per_beat, orig, tbody) {
     let lines = orig.split("\n");
     let beats_per_line = $("#beats_per_line").val();
 
-    
     $.each(lines, function (i, line) {
 	line = line.trim().split(/\s+/);
-	markup = "<tr>";
+ 	markup = "<tr>";
 	for (let i=0, j=0, k=0; i < line.length; i++) {
 	    if (j++ == 0) markup += "<td>"
 	    if (bols_per_beat > 0 || line[i] != "|") {
@@ -197,7 +195,9 @@ function divideNotation(bols_per_beat, orig, tbody) {
 	
 	markup += "</tr>\n";
 	if (markup.includes("tihai"))
-	    markup = colorTihai(markup); 
+	    markup = colorTihai(markup);
+	
+	markup = markup.replaceAll('<tr></tr>','');
 	tbody.append(markup); 
     });
     
