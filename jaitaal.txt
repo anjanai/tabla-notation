@@ -1,0 +1,46 @@
+MT	Dha- Kd		Dha Dhin na			(Dha tit) x 2	Dha dha tin na
+ 1 	Dha- Kd 	Dha Dhin na 	Ti t ki t   	Dha tit 	Dha dha tin na
+ 2 	Dha Dhin na 	Ti t ki t 	Dha- Kd     	Dha tit 	Dha dha tin na
+
+ 3 	Ti t ki t 	Dha Dhin na 	Dha- Kd 	Dha tit 	Dha dha tin na
+ 4 	Ti t ki t 	Dha Dhin na 	Dha- Kd 	    	Dha tit	    	dha.tit .dha.	dha.tin	.naa.
+ 
+ 5	Dha Dhin na	dha dha dhin na				Dha tit		dha.tit	.dha.	dha.tin	.naa.
+ 6 	Dha Dhin na 	dhagena	dhatidha ghenadha tighena	Dha tit		dha.tit	.dha.	dha.tin	.naa.
+ 7 	dhagena	dhatidha ghenadha tighena 	  		Dha tit 	Dha Dhin na	d-t-d d-d-n
+ 8 	d-t-d d-d-n  	 dhagena dhatidha ghenadha tighena	Dha tit 	Dha Tin na
+Tihai	d-t-d d-d-n  	 (dhagena dhatidha ghenadha tighena 	d-nd-nd-)*3 ...
+
+
+0	d-n	dtT	ddtT	dtT	dtT	ddtT	dgtnkn
+0.1	d-n	dtT	ddtT	dtT	dtT	ddtT	dgn dgt nkn
+0.2	d-n	dtT	ddtT	dtTd tTdd tTdg dngn	dtTd tTdd tTdg tnkn
+1	(d-n	dtT	ddtT	dtT)*2
+2	(d-n	dtT)*2	ddtT*2	dtT*2
+3	(d-n	dtT	ddtT)*2	dtT*2
+4	d-n	dtT	ddtT*2	d-n	dtT	dtT*2
+
+5	(d-n 	dtT)*2	dtT*2 	ddtT*2
+6	(dtT	ddtT	d-n	dtT)*2
+7	(dtT	ddtT)*2	(d-n	dtT)*2
+8	dtT*2 	(ddtT	d-n)*2	dtT*2
+9	(d-n	ddtT)*2	dtT*4
+10	(d-n	ddtT)*2	dtT*4 ddd- dtT*2 ddd- dtT*2 ddd-
+
+
+1.	dtd-*3	ktTd*3	t-d-tkTd*3
+2.	dtT	k-t-g-d-g-n-d-	tkTd-	dgnd-	tkT dkt ktgdgn t (g-td-)*3
+3.	kTtkd-d-	tkTtkd-d-	ktTgtT	ktgdgn tkT dkT ktgdgn t-d- td- k-td-	k-td-
+4. 	dtT	ddtT	kdtT	ktT    gtT dgdt	      kTtk trkT tkt- tTkt gdgn d-n d-n d-t d-k-t d-k-t d-k
+5.	d-d-	tTtT	kt-kt-	kTtkd- kTtk	  trkT	   tkt-	tTkt gdgn tkT tkT tkd- kTtk
+	trkT	tkt-	tTkt	gdgn   d-d-d-	  tTkt	   gdgn	d-d-d-	  tTk.tgd.gne.-d-.
+6.	d-d-	...	tTkt	gdgn   d-d-d-	  gdgn	d-d-d-	  g-d-g-n- d-n d-n d-n d-n d
+
+7.	d-nd-n	tkTd-ne	dtkdtT	ktgdgn gdngdn	  t-nd-n	dtkdtT   ktgdgn  d-n-kT  d-d-kT	d-t-kT	g-tr-n d-nd-n d
+8.	dgtT	tktT	kdtT	dgtT   tTkd	  tTdg		  (tTkT	   gdgn d-)*3
+9. 	k-trkTtk	tTktgdgn   tkTdkT	  g-tr-n	   d-d-t- k-t-T- d--- n-d- -n
+	d---	n-g-	--t-	d- (kT   d-nd-n-d-)*4
+10. 	d-trkTd-	trkTd-t-   d-trkTtk	t-trkTtk	trkTtkt-	trkTd-t-	k-d--g-td-*3
+11.	d-d-	tTtT	   kt-kt- 	kTtkd- kTtk	tTkt gdgn d-1-2-3- tkTd- dgnd- tkTd
+	kT	ktgdgn 	   (d-trkTdkt ktgdgn d- kTtk)*3
+	
