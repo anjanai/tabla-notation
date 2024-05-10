@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Jai Taal Peshkar, Qaida, Compositions  </title>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+
+	function get_duration() {
+	let bpm=60;
+	let d =  (33 * 7 * 60000)/bpm;
+	console.log(d);
+	return d;
+	}
+
+      function changeScript() {
+    if ($('#button_changeScript').text() === "Change to Hindi") {
+	$( ".formatted_dev" ).show();
+	$( ".formatted_rom" ).hide();
+	$('#button_changeScript').text("Change to English");
+    } else {
+	$( ".formatted_dev" ).hide();
+	$( ".formatted_rom" ).show();
+	$('#button_changeScript').text("Change to Hindi");
+    }
+}
+	
+      $(document).ready(function(){
+	  changeScript();
+      });
+    </script>
+    <style>
+      body {
+      margin: 10px;
+      font: normal 16px Arial, sans-serif;
+      background-color: #fff;
+      color: #444;
+      }
+      .wrapper {
+      max-width: 1000px;
+      margin: 0 20px;
+      grid-gap: 20px;
+      }
+      .zui-table {
+	  table-layout: fixed;
+      width: 444px;
+      border: solid 2px #DDEEFF;
+      border-collapse: collapse;
+      border-spacing: 0;
+      
+      }
+      
+      .zui-table tbody td {
+      border: solid 1px #DDEEEE;
+      }
+      
+      tr:nth-child(odd) { 
+          background-color: Lightgrey; 
+      }
+      tr:nth-child(even) { 
+          background-color: lightblue; 
+      }
+      .zui-table tr:nth-child(n+3) {
+	  display: none;
+      }
+		       
+      @media print {
+      p {page-break-after: always;}
+      }
+
+    </style>
+  </head>
+  <body >
+    <button id=button_changeScript onclick="changeScript()">Change to Hindi</button>
+    <div class="wrapper">
+      <h1> Peshkar </h1>
+      <ol start=0>
+	<li>
+      <span id="formatted">
+	  <table class="zui-table formatted_rom" style="display: none;"><tbody><tr><td>dhaa -kDa </td><td>dhaa dhin </td><td>naa dhaa </td><td>tit dhaa </td></tr><tr><td>tit dhaa </td><td>dhaa tin </td><td>naa taa </td><td>-kDa taa </td></tr><tr><td>tin naa </td><td>dhaa tit </td><td>dhaa tit </td><td>dhaa dhaa </td></tr><tr><td>dhin naa </td></tr>
+</tbody></table>
+	  <table class="zui-table formatted_dev"><tbody><tr><td>धा -क्ड </td><td>धा धिं </td><td>ना धा </td><td>तित् धा </td></tr><tr><td>तित् धा </td><td>धा तिं </td><td>ना ता </td><td>-क्ड ता </td></tr><tr><td>तिं ना </td><td>धा तित् </td><td>धा तित् </td><td>धा धा </td></tr><tr><td>धिं ना </td></tr>
+</tbody></table>
+      </span>
+
+      <li>
+      <span id="formatted">
+	  <table class="zui-table formatted_rom" style="display: none;"><tbody><tr><td>dhaa -kDa </td><td>dhaa dhin </td><td>naa tiTa </td><td>kiTa dhaa </td></tr><tr><td>tit dhaa </td><td>dhaa tin </td><td>naa taa </td><td>-kDa taa </td></tr><tr><td>tin naa </td><td>tiTa kiTa </td><td>dhaa tit </td><td>dhaa dhaa </td></tr><tr><td>dhin naa </td></tr>
+</tbody></table>
+	  <table class="zui-table formatted_dev"><tbody><tr><td>धा -क्ड </td><td>धा धिं </td><td>ना तिट </td><td>किट धा </td></tr><tr><td>तित् धा </td><td>धा तिं </td><td>ना ता </td><td>-क्ड ता </td></tr><tr><td>तिं ना </td><td>तिट किट </td><td>धा तित् </td><td>धा धा </td></tr><tr><td>धिं ना </td></tr>
+</tbody></table>
+	  </span>
+
+      <li>
+      <span id="formatted">
+	  <table class="zui-table formatted_rom" style="display: none;"><tbody><tr><td>dhaa dhin </td><td>naa tiTa </td><td>kiTa dhaa </td><td>-kDa dhaa </td></tr><tr><td>tit dhaa </td><td>dhaa tin </td><td>naa taa </td><td>tin naa </td></tr><tr><td>tiTa kiTa </td><td>dhaa -kDa </td><td>dhaa tit </td><td>dhaa dhaa </td></tr><tr><td>dhin naa </td></tr>
+</tbody></table>
+	  <table class="zui-table formatted_dev"><tbody><tr><td>धा धिं </td><td>ना तिट </td><td>किट धा </td><td>-क्ड धा </td></tr><tr><td>तित् धा </td><td>धा तिं </td><td>ना ता </td><td>तिं ना </td></tr><tr><td>तिट किट </td><td>धा -क्ड </td><td>धा तित् </td><td>धा धा </td></tr><tr><td>धिं ना </td></tr>
+</tbody></table>
+      </span>
+
+
+      <li>
+      <span id="formatted">
+	  <table class="zui-table formatted_rom" style="display: none;"><tbody><tr><td>tiTa kiTa </td><td>dhaa dhin </td><td>naa dhaa </td><td>-kDa dhaa </td></tr><tr><td>tit dhaa </td><td>dhaa tin </td><td>naa tiTa </td><td>kiTa taa </td></tr><tr><td>tin naa </td><td>dhaa -kDa </td><td>dhaa tit </td><td>dhaa dhaa </td></tr><tr><td>dhin naa </td></tr>
+</tbody></table>
+	  <table class="zui-table formatted_dev"><tbody><tr><td>तिट किट </td><td>धा धिं </td><td>ना धा </td><td>-क्ड धा </td></tr><tr><td>तित् धा </td><td>धा तिं </td><td>ना तिट </td><td>किट ता </td></tr><tr><td>तिं ना </td><td>धा -क्ड </td><td>धा तित् </td><td>धा धा </td></tr><tr><td>धिं ना </td></tr>
+</tbody></table>
+      </span>
+      
+      <li>
+      <span id="formatted">
+	  <table class="zui-table formatted_rom" style="display: none;"><tbody><tr><td>tiTa kiTa </td><td>dhaa dhin </td><td>naa dhaa </td><td>-kDa dhaa </td></tr><tr><td>tit dhaa-tit </td><td>-dhaa- dhaa-tin </td><td>-naa- tiTa </td><td>kiTa taa </td></tr>
+<tr><td>tin naa </td><td>dhaa -kDa </td><td>dhaa tit </td><td>dhaa-tit -dhaa- </td></tr><tr><td>dhaa-dhin -naa- </td></tr>
+</tbody></table>
+	  <table class="zui-table formatted_dev"><tbody><tr><td>तिट किट </td><td>धा धिं </td><td>ना धा </td><td>-क्ड धा </td></tr><tr><td>तित् धा-तित् </td><td>-धा- धा-तिं </td><td>-ना- तिट </td><td>किट ता </td></tr>
+<tr><td>तिं ना </td><td>धा -क्ड </td><td>धा तित् </td><td>धा-तित् -धा- </td></tr><tr><td>धा-धिं -ना- </td></tr>
+</tbody></table>
+      </span>
+      
+      <li>
+	<span id="formatted">
+	  <table class="zui-table formatted_rom" style="display: none;"><tbody><tr><td>dhaa dhin </td><td>naa dhaa </td><td>dhaa dhin </td><td>naa dhaa </td></tr><tr><td>tit dhaa-tit </td><td>-dhaa- dhaa-tin </td><td>-naa- taa </td><td>tin naa </td></tr>
+<tr><td>taa taa </td><td>tin naa </td><td>dhaa tit </td><td>dhaa-tit -dhaa- </td></tr><tr><td>dhaa-dhin -naa- </td></tr>
+</tbody></table>
+	  <table class="zui-table formatted_dev"><tbody><tr><td>धा धिं </td><td>ना धा </td><td>धा धिं </td><td>ना धा </td></tr><tr><td>तित् धा-तित् </td><td>-धा- धा-तिं </td><td>-ना- ता </td><td>तिं ना </td></tr>
+<tr><td>ता ता </td><td>तिं ना </td><td>धा तित् </td><td>धा-तित् -धा- </td></tr><tr><td>धा-धिं -ना- </td></tr>
+</tbody></table>
+	</span>
+	
+      <li>
+      <span id="formatted">
+	  <table class="zui-table formatted_rom" style="display: none;"><tbody><tr><td>dhaa dhin </td><td>naa dhaagenaa </td><td>dhaatidhaa ghenaadhaa </td><td>tighenaa dhaa </td></tr><tr><td>tit dhaa-tit </td><td>-dhaa- dhaa-tin </td><td>-naa- taa </td><td>tin naa </td></tr>
+<tr><td>taakenaa taatitaa </td><td>kenaataa tikenaa </td><td>dhaa tit </td><td>dhaa-tit -dhaa- </td></tr><tr><td>dhaa-dhin -naa- </td></tr>
+</tbody></table>
+	  <table class="zui-table formatted_dev"><tbody><tr><td>धा धिं </td><td>ना धागेना </td><td>धातिधा घेनाधा </td><td>तिघेना धा </td></tr><tr><td>तित् धा-तित् </td><td>-धा- धा-तिं </td><td>-ना- ता </td><td>तिं ना </td></tr>
+<tr><td>ताकेना तातिता </td><td>केनाता तिकेना </td><td>धा तित् </td><td>धा-तित् -धा- </td></tr><tr><td>धा-धिं -ना- </td></tr>
+</tbody></table>
+      </span>
+
+      <li>
+<span id="formatted">
+	  <table class="zui-table formatted_rom" style="display: none;"><tbody><tr><td>dhaagenaa dhaatidhaa </td><td>ghenaadhaa tighenaa </td><td>dhaa tit </td><td>dhaa dhin </td></tr>
+<tr><td>naa dhaa-tit </td><td>-dhaa- dhaa-tin </td><td>-naa- taakenaa </td><td>taatitaa kenaataa </td></tr>
+<tr><td>tikenaa taa </td><td>tit taa </td><td>tin naa </td><td>dhaa-tit -dhaa- </td></tr>
+<tr><td>dhaa-dhin -naa- </td></tr>
+</tbody></table>
+	  <table class="zui-table formatted_dev"><tbody><tr><td>धागेना धातिधा </td><td>घेनाधा तिघेना </td><td>धा तित् </td><td>धा धिं </td></tr>
+<tr><td>ना धा-तित् </td><td>-धा- धा-तिं </td><td>-ना- ताकेना </td><td>तातिता केनाता </td></tr>
+<tr><td>तिकेना ता </td><td>तित् ता </td><td>तिं ना </td><td>धा-तित् -धा- </td></tr>
+<tr><td>धा-धिं -ना- </td></tr>
+</tbody></table>
+</span>
+
+      <li>
+	<span id="formatted">
+	  <table class="zui-table formatted_rom" style="display: none;"><tbody><tr><td>dhaa-tit -dhaa- </td><td>dhaa-dhin -naa- </td><td>dhaagenaa dhaatidhaa </td><td>ghenaadhaa tighenaa </td></tr><tr><td>dhaa tit </td><td>dhaa tin </td><td>naa taa-tit </td><td>-taa- taa-tin </td></tr><tr><td>-naa- taakenaa </td><td>taatitaa kenaataa </td><td>tikenaa dhaa </td><td>tit dhaa </td></tr><tr><td>dhin naa </td></tr>
+</tbody></table>
+	  <table class="zui-table formatted_dev"><tbody><tr><td>धा-तित् -धा- </td><td>धा-धिं -ना- </td><td>धागेना धातिधा </td><td>घेनाधा तिघेना </td></tr><tr><td>धा तित् </td><td>धा तिं </td><td>ना ता-तित् </td><td>-ता- ता-तिं </td></tr><tr><td>-ना- ताकेना </td><td>तातिता केनाता </td><td>तिकेना धा </td><td>तित् धा </td></tr><tr><td>धिं ना </td></tr>
+</tbody></table>
+	</span>
+
+      <li>
+	<span id="formatted">
+	  <table class="zui-table formatted_rom" style="display: none;"><tbody><tr><td>dhaa-tit -dhaa- </td><td>dhaa-dhin -naa- </td><td>dhaagenaa dhaatidhaa </td><td>ghenaadhaa tighenaa </td></tr><tr><td>dhaa-ne dhaa-ne </td><td>dhaa dhaagenaa </td><td>dhaatidhaa ghenaadhaa </td><td>tighenaa dhaa-ne </td></tr><tr><td>dhaa-ne dhaa </td><td>dhaagenaa dhaatidhaa </td><td>ghenaadhaa tighenaa </td><td>dhaa-ne dhaa-ne </td></tr><tr><td>dhaa 1 </td></tr>
+<tr><td>2 dhaa-tit </td><td>-dhaa- dhaa-dhin </td><td>-naa- dhaagenaa </td><td>dhaatidhaa ghenaadhaa </td></tr><tr><td>tighenaa dhaa-ne </td><td>dhaa-ne dhaa </td><td>dhaagenaa dhaatidhaa </td><td>ghenaadhaa tighenaa </td></tr><tr><td>dhaa-ne dhaa-ne </td><td>dhaa dhaagenaa </td><td>dhaatidhaa ghenaadhaa </td><td>tighenaa dhaa-ne </td></tr><tr><td>dhaa-ne dhaa </td></tr>
+<tr><td>1 2 </td><td>dhaa-tit -dhaa- </td><td>dhaa-dhin -naa- </td><td>dhaagenaa dhaatidhaa </td></tr><tr><td>ghenaadhaa tighenaa </td><td>dhaa-ne dhaa-ne </td><td>dhaa dhaagenaa </td><td>dhaatidhaa ghenaadhaa </td></tr><tr><td>tighenaa dhaa-ne </td><td>dhaa-ne dhaa </td><td>dhaagenaa dhaatidhaa </td><td>ghenaadhaa tighenaa </td></tr><tr><td>dhaa-ne dhaa-ne </td><td>dhaa </td></tr>
+</tbody></table>
+	  <table class="zui-table formatted_dev"><tbody><tr><td>धा-तित् -धा- </td><td>धा-धिं -ना- </td><td>धागेना धातिधा </td><td>घेनाधा तिघेना </td></tr><tr><td>धा-ने धा-ने </td><td>धा धागेना </td><td>धातिधा घेनाधा </td><td>तिघेना धा-ने </td></tr><tr><td>धा-ने धा </td><td>धागेना धातिधा </td><td>घेनाधा तिघेना </td><td>धा-ने धा-ने </td></tr><tr><td>धा 1 </td></tr>
+<tr><td>2 धा-तित् </td><td>-धा- धा-धिं </td><td>-ना- धागेना </td><td>धातिधा घेनाधा </td></tr><tr><td>तिघेना धा-ने </td><td>धा-ने धा </td><td>धागेना धातिधा </td><td>घेनाधा तिघेना </td></tr><tr><td>धा-ने धा-ने </td><td>धा धागेना </td><td>धातिधा घेनाधा </td><td>तिघेना धा-ने </td></tr><tr><td>धा-ने धा </td></tr>
+<tr><td>1 2 </td><td>धा-तित् -धा- </td><td>धा-धिं -ना- </td><td>धागेना धातिधा </td></tr><tr><td>घेनाधा तिघेना </td><td>धा-ने धा-ने </td><td>धा धागेना </td><td>धातिधा घेनाधा </td></tr><tr><td>तिघेना धा-ने </td><td>धा-ने धा </td><td>धागेना धातिधा </td><td>घेनाधा तिघेना </td></tr><tr><td>धा-ने धा-ने </td><td>धा </td></tr>
+</tbody></table>
+	  </span>
+      </ol>
+
+      <h1> Qaida </h1>
+      
+      <span id="formatted">
+	  <table class="formatted_rom" style="display: none;"><tbody><tr><td>0. dhaa–ne dhaatiTa dhaadhaatiTa (dhaatiTa) x 2 dhaadhaatiTa dhaage tinnaakenaa </td></tr>
+<tr><td>1. ( dhaa–ne dhaatiTa dhaadhaatiTa dhaatiTa ) x 2 </td></tr>
+<tr><td>2. ( dhaa–ne dhaatiTa ) x 2 ( dhaadhaatiTa ) x 2 ( dhaatiTa ) x 2 </td></tr>
+<tr><td>3. (dhaa–ne dhaatiTa dhaadhaatiTa ) x 2 ( dhaatiTa ) x 2 </td></tr>
+<tr><td>4. dhaa–ne dhaatiTa ( dhaadhaatiTa ) x 2 dhaa–ne dhaatiTa ( dhaatiTa ) x 2 </td></tr>
+<tr><td>5. ( dhaa–ne dhaatiTa ) x 2 ( dhaatiTa ) x 2 ( dhaadhaatiTa ) x 2 </td></tr>
+<tr><td>6. ( dhaatiTa dhaadhaatiTa dhaa~~ dhaatiTa ) x 2 </td></tr>
+<tr><td>7. (dhaatiTa dhaadhaatiTa) x 2 (dhaa–ne dhaatiTa) x 2 </td></tr>
+<tr><td>8. (dhaatiTa) x 2 (dhaadhaatiTa dhaa–ne ) x 2 (dhaatiTa) x 2 </td></tr>
+<tr><td>9. (dhaa–ne dhaadhaatiTa) x 2 (dhaatiTa) x 4 </td></tr>
+<tr><td>Tihai: (dhaa–ne dhaadhaatiTa) x 2 (dhaatiTa) x 4 dhaa dhaa dhaa - (dhaatiTa) x 2 dhaa dhaa dhaa - (dhaatiTa) x 2 dhaa dhaa dhaa - 1 - 2 - </td></tr>
+</tbody></table>
+	  <table class="formatted_dev"><tbody><tr><td> 0. धा–ने धातिट धाधातिट (धातिट) x 2 धाधातिट धागे तिंनाकेना </td></tr>
+<tr><td>1. ( धा–ने धातिट धाधातिट धातिट ) x 2 </td></tr>
+<tr><td>2.( धा–ने धातिट ) x 2 ( धाधातिट ) x 2 ( धातिट ) x 2 </td></tr>
+<tr><td>3.(धा–ने धातिट धाधातिट ) x 2 ( धातिट ) x 2 </td></tr>
+<tr><td>4.धा–ने धातिट ( धाधातिट ) x 2 धा–ने धातिट ( धातिट ) x 2 </td></tr>
+<tr><td>5. ( धा–ने धातिट ) x 2 ( धातिट ) x 2 ( धाधातिट ) x 2 </td></tr>
+<tr><td>6. ( धातिट धाधातिट धा~~ धातिट ) x 2 </td></tr>
+<tr><td>7. (धातिट धाधातिट) x 2 (धा–ने धातिट) x 2 </td></tr>
+<tr><td>8. (धातिट) x 2 (धाधातिट धा–ने ) x 2 (धातिट) x 2 </td></tr>
+<tr><td>9. (धा–ने धाधातिट) x 2 (धातिट) x 4 </td></tr>
+<tr><td>Tihai: (धा–ने धाधातिट) x 2 (धातिट) x 4 धा धा धा - (धातिट) x 2 धा धा धा - (धातिट) x 2 धा धा धा - 1 - 2 - </td></tr>
+</tbody></table>
+      </span>
+      
+      <h1> Compositions </h1>
+      <ol>
+	<li>
+	  <!--
+      <h2> <a href=https://youtube.com/clip/UgkxaVy2g_QwsehzzTFNWp7Dm_gwFRhWHIjv?si=8MxRXPuvCnbOK501> Tukda 1 </a></h2>
+-->
+      <span id="formatted">
+	  <table class="zui-table formatted_rom" style=""><tbody><tr><td>dhaa ti dhaa - </td><td>dhaa ti dhaa - </td><td>dhaa ti dhaa - </td><td>ka ti Ta dhaa </td></tr>
+<tr><td>- ka ti Ta </td><td>dhaa - ka ti </td><td>Ta dhaa - taa </td><td>- dhaa - ta </td></tr>
+<tr><td>ki Ta dhaa - </td><td>taa - dhaa - </td><td>ta ki Ta dhaa </td><td>- taa - dhaa </td></tr>
+<tr><td>- ta ki Ta </td><td>dhaa - </td></tr>
+</tbody></table>
+	  <table class="zui-table formatted_dev" style="display: none;"><tbody><tr><td>धा ति धा - </td><td>धा ति धा - </td><td>धा ति धा - </td><td>क ति ट धा </td></tr>
+<tr><td>- क ति ट </td><td>धा - क ति </td><td>ट धा - ता </td><td>- धा - त </td></tr>
+<tr><td>कि ट धा - </td><td>ता - धा - </td><td>त कि ट धा </td><td>- ता - धा </td></tr>
+<tr><td>- त कि ट </td><td>धा - </td></tr>
+</tbody></table>
+	  </span>
+      
+      <li> <!--  <a href=https://www.youtube.com/clip/UgkxQem9dSCZDMozd9Y4ZWaDwl-hyvJIpjBH>
+Tukda 2 </a></h2> -->
+<span id="formatted">
+	  <table class="zui-table formatted_rom" style="display: none;"><tbody><tr><td>dhaa ti Ta ka </td><td>- taa - ga </td><td>- di - ga </td><td>- ne dhaa - </td></tr>
+<tr><td>ta ki Ta dhaa </td><td>- di ga ne </td><td>dhaa - ta ki </td><td>Ta dhi ki Ta </td></tr>
+<tr><td>ka ta ga di </td><td>ga ne taa ghen </td><td>- ta dhaa - </td><td>ghen - ta dhaa </td></tr>
+<tr><td>- ghen - ta </td><td>dhaa - </td></tr>
+</tbody></table>
+	  <table class="zui-table formatted_dev" style=""><tbody><tr><td>धा ति ट क </td><td>- ता - ग </td><td>- दी - ग </td><td>- ने धा - </td></tr>
+<tr><td>त कि ट धा </td><td>- दि ग ने </td><td>धा - त कि </td><td>ट धि कि ट </td></tr>
+<tr><td>क त ग दि </td><td>ग ने ता घें </td><td>- त धा - </td><td>घें - त धा </td></tr>
+<tr><td>- घें - त </td><td>धा - </td></tr>
+</tbody></table>
+	  </span>      
+
+      <li> <!--   <a href=https://www.youtube.com/clip/UgkxU_7euYe6BVH4dRiA57_Q3neM-lK8O-Tr>
+Tukda 3 </a></h2> -->
+      <span id="formatted">
+	  <table class="zui-table formatted_rom" style=""><tbody><tr><td>kiTa taka dhet - </td><td>dhaa - taa kiTa </td><td>taka dhet - dhaa </td><td>- ki Ta taa </td></tr>
+<tr><td>ge ti Ta ka </td><td>ta ga di ga </td><td>ne ta ki Ta </td><td>dhi ki Ta ka </td></tr>
+<tr><td>ta ga di ga </td><td>ne taa - dhaa </td><td>- ta dhaa - </td><td>kat - ta dhaa </td></tr>
+<tr><td>- kat - ta </td><td>dhaa </td></tr>
+</tbody></table>
+	  <table class="zui-table formatted_dev" style="display: none;"><tbody><tr><td>किट तक धेत् - </td><td>धा - ता किट </td><td>तक धेत् - धा </td><td>- कि ट ता </td></tr>
+<tr><td>गे ति ट क </td><td>त ग दि ग </td><td>ने त कि ट </td><td>धि कि ट क </td></tr>
+<tr><td>त ग दि ग </td><td>ने ता - धा </td><td>- त धा - </td><td>कत् - त धा </td></tr>
+<tr><td>- कत् - त </td><td>धा </td></tr>
+</tbody></table>
+	  </span>
+
+     
+      <li> <!--   <a href= https://youtube.com/clip/UgkxOR0zetcAwMPeGb5kJrmiL-N5jRTfifoB> Tukda 4 </a></h2> -->
+      <span id="formatted">
+	  <table class="zui-table formatted_rom" style=""><tbody><tr><td>dhaa ti Ta dhaa </td><td>dhaa ti Ta kDa </td><td>dhe ti Ta ka </td><td>ti Ta ghe ti </td></tr>
+<tr><td>Ta dhaa ge din </td><td>taa kiTa taka tira </td><td>kiTa taka taa tiTa </td><td>kata gadi gane dhaa </td></tr>
+<tr><td>1 2 dhaa 1 </td><td>2 dhaa - ta </td><td>dhaa - kat - </td><td>ta dhaa - kat </td></tr>
+<tr><td>- ta dhaa - </td><td>kat - </td></tr>
+</tbody></table>
+	  <table class="zui-table formatted_dev" style="display: none;"><tbody><tr><td>धा ति ट धा </td><td>धा ति ट क्ड </td><td>धे ति ट क </td><td>ति ट घे ति </td></tr>
+<tr><td>ट धा गे दिं </td><td>ता किट तक तिर </td><td>किट तक ता तिट </td><td>कत गदि गने धा </td></tr>
+<tr><td>१ २ धा १ </td><td>२ धा - त </td><td>धा - कत् - </td><td>त धा - कत् </td></tr>
+<tr><td>- त धा - </td><td>कत् - </td></tr>
+</tbody></table>
+	  </span>
+
+      
+      <li> <!--<a href= https://youtube.com/clip/Ugkx9-LyjgcMqflbXf7hYP8TPIcDdjOY8OGd>
+Tukda 5 </a></h2> -->
+      <span id="formatted">
+	  <table class="zui-table formatted_rom" style="display: none;"><tbody><tr><td>din - din - </td><td>ti Ta ti Ta </td><td>ka taa - ka </td><td>taa - kiTa taka </td></tr>
+<tr><td>di - ki Ta </td><td>ta ka ti ra </td><td>ki Ta ta ka </td><td>taa - ti Ta </td></tr>
+<tr><td>ka ta ga di </td><td>ga ne ta ki </td><td>Ta ta ki Ta </td><td>ta ka di - </td></tr><tr><td>ki Ta ta ka </td></tr>
+<tr><td>ti ra ki Ta </td><td>ta ka taa - </td><td>ti Ta ka ta </td><td>ga di ga ne </td></tr>
+<tr><td>dhaa - dhaa - </td><td>dhaa - ti Ta </td><td>ka ta ga di </td><td>ga ne dhaa - </td></tr>
+<tr><td>dhaa - dhaa - </td><td>ti Ta ka &nbsp; </td><td>ta ga di &nbsp; </td><td>ga ne dhaa &nbsp; </td></tr><tr><td>- dhaa - &nbsp; </td><td>dhaa </td></tr>
+</tbody></table>
+	  <table class="zui-table formatted_dev"><tbody><tr><td>दिं - दिं - </td><td>ति ट ति ट </td><td>क ता - क </td><td>ता - किट तक </td></tr>
+<tr><td>दी - कि ट </td><td>त क ति र </td><td>कि ट त क </td><td>ता - ति ट </td></tr>
+<tr><td>क त ग दि </td><td>ग ने त कि </td><td>ट त कि ट </td><td>त क दी - </td></tr><tr><td>कि ट त क </td></tr>
+<tr><td>ति र कि ट </td><td>त क ता - </td><td>ति ट क त </td><td>ग दि ग ने </td></tr>
+<tr><td>धा - धा - </td><td>धा - ति ट </td><td>क त ग दि </td><td>ग ने धा - </td></tr>
+<tr><td>धा - धा - </td><td>ति ट क &nbsp; </td><td>त ग दि &nbsp; </td><td>ग ने धा &nbsp; </td></tr><tr><td>- धा - &nbsp; </td><td>धा </td></tr>
+</tbody></table>
+	  </span>
+      
+      <li> <!-- <a href=https://youtube.com/clip/UgkxMnFzBHueF13YBULhf_15_UnFYk03HmUL?si=7toQGuS21fayFeVW> Tukda 6 </a> </h2> --> 
+      <span id="formatted">
+	  <table class="zui-table formatted_rom" style="display: none;"><tbody><tr><td>din - din - </td><td>ti Ta ti Ta </td><td>ka taa - ka </td><td>taa - kiTa taka </td></tr>
+<tr><td>di - ki Ta </td><td>ta ka ti ra </td><td>ki Ta ta ka </td><td>taa - ti Ta </td></tr>
+<tr><td>ka ta ga di </td><td>ga ne ta ki </td><td>Ta ta ki Ta </td><td>ta ka di - </td></tr><tr><td>ki Ta ta ka </td></tr>
+<tr><td>ti ra ki Ta </td><td>ta ka taa - </td><td>ti Ta ka ta </td><td>ga di ga ne </td></tr>
+<tr><td>dhaa - dhaa - </td><td>dhaa - ga di </td><td>ga ne dhaa - </td><td>dhaa - dhaa - </td></tr>
+<tr><td>ga - di - </td><td>ga - ne - </td><td>dhaa - ne dhaa </td><td>- ne dhaa - </td></tr><tr><td>ne dhaa - ne </td><td>dhaa </td></tr>
+</tbody></table>
+	  <table class="zui-table formatted_dev"><tbody><tr><td>दिं - दिं - </td><td>ति ट ति ट </td><td>क ता - क </td><td>ता - किट तक </td></tr>
+<tr><td>दी - कि ट </td><td>त क ति र </td><td>कि ट त क </td><td>ता - ति ट </td></tr>
+<tr><td>क त ग दि </td><td>ग ने त कि </td><td>ट त कि ट </td><td>त क दी - </td></tr><tr><td>कि ट त क </td></tr>
+<tr><td>ति र कि ट </td><td>त क ता - </td><td>ति ट क त </td><td>ग दि ग ने </td></tr>
+<tr><td>धा - धा - </td><td>धा - ग दि </td><td>ग ने धा - </td><td>धा - धा - </td></tr>
+<tr><td>ग - दि - </td><td>ग - ने - </td><td>धा - ने धा </td><td>- ने धा - </td></tr><tr><td>ने धा - ने </td><td>धा </td></tr>
+</tbody></table>
+	  </span>
+   
+
+    <li> <!-- <a href=https://youtube.com/clip/Ugkx4S3LP-txtDNa2Y0k08AwLgfV3Px5KqM7> Tukda 7 </a> </h2> --> 
+    <span id="formatted">
+	  <table class="zui-table formatted_rom" style="display: none;"><tbody><tr><td>dhaa - ne dhaa - ne </td><td>ta ki Ta dhaa - ne </td><td>dhaa tra ka dhi ki Ta </td><td>ka ta ga di ga ne </td></tr>
+<tr><td>ghi Da na ga dhi ne </td><td>taa - ne dhaa - ne </td><td>dhaa tra ka dhi ki Ta </td><td>ka ta ga di ga ne </td></tr>
+<tr><td>dhin - naa - ki Ta </td><td>dhaa - din - ki Ta </td><td>dheta् - taa - ki Ta </td><td>ghin - ta raa - ne </td></tr>
+<tr><td>dhaa - ne dhaa - ne </td><td>dhaa </td></tr>
+</tbody></table>
+	  <table class="zui-table formatted_dev"><tbody><tr><td>धा - ने धा - ने </td><td>त कि ट धा - ने </td><td>धा त्र क धि कि ट </td><td>क त ग दि ग ने </td></tr>
+<tr><td>घि ड न ग धि ने </td><td>ता - ने धा - ने </td><td>धा त्र क धि कि ट </td><td>क त ग दि ग ने </td></tr>
+<tr><td>धिं - ना - कि ट </td><td>धा - दिं - कि ट </td><td>धेत् - ता - कि ट </td><td>घिं - त रा - ने </td></tr>
+<tr><td>धा - ने धा - ने </td><td>धा </td></tr>
+</tbody></table>
+    </span>
+
+
+    <li> <!-- <a href=https://youtube.com/clip/UgkxRhrMk-dnIauSOFUfoGMn0hTPwIVAqsdH> Tukda 8 </a> </h2> -->
+<span id="formatted">
+	  <table class="zui-table formatted_rom" style="display: none;"><tbody><tr><td>dhaa ge ti Ta </td><td>taa ke ti Ta </td><td>kDa dhe ti Ta </td><td>dhaa ge ti Ta </td></tr>
+<tr><td>ti Ta kDa dhe </td><td>ti Ta dhaa ge </td><td>ti Ta ka ta </td><td>ga di ga ne </td></tr>
+<tr><td>dhaa - ti Ta </td><td>ka ta ga di </td><td>ga ne dhaa - </td><td>ti Ta ka ta </td></tr>
+<tr><td>ga di ga ne </td><td>dhaa - </td></tr>
+</tbody></table>
+	  <table class="zui-table formatted_dev"><tbody><tr><td>धा गे ति ट </td><td>ता के ति ट </td><td>क्ड धे ति ट </td><td>धा गे ति ट </td></tr>
+<tr><td>ति ट क्ड धे </td><td>ति ट धा गे </td><td>ति ट क त </td><td>ग दि ग ने </td></tr>
+<tr><td>धा - ति ट </td><td>क त ग दि </td><td>ग ने धा - </td><td>ति ट क त </td></tr>
+<tr><td>ग दि ग ने </td><td>धा - </td></tr>
+</tbody></table>
+	  </span>
+
+<li> <!-- <a href=https://youtube.com/clip/UgkxoBLlmL8y5DNJ23rJo-2Y0vEq3tRBp_Nb> Tukda 9 </a> </h2> -->
+<span id="formatted">
+	  <table class="zui-table formatted_rom" style="display: none;"><tbody><tr><td>kat - ti ra </td><td>ki Ta ta ka </td><td>ti Ta ka ta </td><td>ga di ga ne </td></tr>
+<tr><td>ta ki Ta dhi </td><td>ki Ta ghin - </td><td>ta raa - ne </td><td>dhaa - din - </td></tr>
+<tr><td>taa - ka - </td><td>ti - Ta - </td><td>dhaa - - - </td><td>ne - dhaa - </td></tr>
+<tr><td>- - ne - </td></tr>
+<tr><td>dhaa - - - </td><td>ne - ghen - </td><td>- - ta - </td><td>dhaa - ki Ta </td></tr>
+<tr><td>dhaa - ne dhaa </td><td>- ne dhaa - </td><td>ki Ta dhaa - </td><td>ne dhaa - ne </td></tr>
+<tr><td>dhaa - ki Ta </td><td>dhaa - ne dhaa </td><td>- ne dhaa - </td><td>ki Ta dhaa - </td></tr>
+<tr><td>ne dhaa - ne </td><td>dhaa - </td></tr>
+</tbody></table>
+	  <table class="zui-table formatted_dev"><tbody><tr><td>कत् - ति र </td><td>कि ट त क </td><td>ति ट क त </td><td>ग दि ग ने </td></tr>
+<tr><td>त कि ट धि </td><td>कि ट घिं - </td><td>त रा - ने </td><td>धा - दिं - </td></tr>
+<tr><td>ता - क - </td><td>ति - ट - </td><td>धा - - - </td><td>ने - धा - </td></tr>
+<tr><td>- - ने - </td></tr>
+<tr><td>धा - - - </td><td>ने - घें - </td><td>- - त - </td><td>धा - कि ट </td></tr>
+<tr><td>धा - ने धा </td><td>- ने धा - </td><td>कि ट धा - </td><td>ने धा - ने </td></tr>
+<tr><td>धा - कि ट </td><td>धा - ने धा </td><td>- ने धा - </td><td>कि ट धा - </td></tr>
+<tr><td>ने धा - ने </td><td>धा - </td></tr>
+</tbody></table>
+	  </span>
+
+
+<li> <!-- <a href=https://youtube.com/clip/UgkxVrJkG3ZC0H2ZkG5EkF2_y9A1A9pN4krv> Tukda 10 </a> </h2> -->
+<span id="formatted">
+	  <table class="zui-table formatted_rom" style="display: none;"><tbody><tr><td>dhaa tira kiTa dhaa </td><td>tira kiTa dhaa ti </td><td>dhaa tira kiTa taka </td><td>taa tira kiTa taka </td></tr>
+<tr><td>tira kiTa taka taa </td><td>tira kiTa dhaa ti </td><td>kDaाna् - dhaa - </td><td>- ghen - ta </td></tr>
+<tr><td>dhaa - kDaाna् - </td><td>dhaa - - ghen </td><td>- ta dhaa - </td><td>kDaाna् - dhaa - </td></tr>
+<tr><td>- ghen - ta </td><td>dhaa - </td></tr>
+</tbody></table>
+	  <table class="zui-table formatted_dev"><tbody><tr><td>धा तिर किट धा </td><td>तिर किट धा ति </td><td>धा तिर किट तक </td><td>ता तिर किट तक </td></tr>
+<tr><td>तिर किट तक ता </td><td>तिर किट धा ति </td><td>क्डान् - धा - </td><td>- घें - त </td></tr>
+<tr><td>धा - क्डान् - </td><td>धा - - घें </td><td>- त धा - </td><td>क्डान् - धा - </td></tr>
+<tr><td>- घें - त </td><td>धा - </td></tr>
+</tbody></table>
+</span>
+
+<li> <!-- <a href=https://youtube.com/clip/UgkxTFb1CHRZ7qx7bjRufPEt6GIA2PR5zCrc> Tukda 11 </a> </h2> -->
+<span id="formatted">
+	  <table class="zui-table formatted_rom" style="display: none;"><tbody><tr><td>din - din - </td><td>ti Ta ti Ta </td><td>ka taa - ka </td><td>taa - kiTa taka </td></tr>
+<tr><td>di - ki Ta </td><td>ta ka ti Ta </td><td>ka ta ga di </td><td>ga ne dhaa - </td></tr>
+<tr><td>1 - 2 - </td><td>३ - ta ki </td><td>Ta dhaa - di </td><td>ga ne dhaa - </td></tr>
+<tr><td>ta ki Ta dhi </td></tr>
+<tr><td>ki Ta ka ta </td><td>ga di ga ne </td><td>dhaa tira kiTa dhi </td><td>ki Ta ka ta </td></tr>
+<tr><td>ga di ga ne </td><td>dhaa - kiTa taka </td><td>dhaa tira kiTa dhi </td><td>ki Ta ka ta </td></tr>
+<tr><td>ga di ga ne </td><td>dhaa - kiTa taka </td><td>dhaa tira kiTa dhi </td><td>ki Ta ka ta </td></tr>
+<tr><td>ga di ga ne </td><td>dhaa - </td></tr>
+</tbody></table>
+	  <table class="zui-table formatted_dev"><tbody><tr><td>दिं - दिं - </td><td>ति ट ति ट </td><td>क ता - क </td><td>ता - किट तक </td></tr>
+<tr><td>दी - कि ट </td><td>त क ति ट </td><td>क त ग दि </td><td>ग ने धा - </td></tr>
+<tr><td>१ - २ - </td><td>३ - त कि </td><td>ट धा - दि </td><td>ग ने धा - </td></tr>
+<tr><td>त कि ट धि </td></tr>
+<tr><td>कि ट क त </td><td>ग दि ग ने </td><td>धा तिर किट धि </td><td>कि ट क त </td></tr>
+<tr><td>ग दि ग ने </td><td>धा - किट तक </td><td>धा तिर किट धि </td><td>कि ट क त </td></tr>
+<tr><td>ग दि ग ने </td><td>धा - किट तक </td><td>धा तिर किट धि </td><td>कि ट क त </td></tr>
+<tr><td>ग दि ग ने </td><td>धा - </td></tr>
+</tbody></table>
+	  </span>
+     </div>
+  </body>
+</html>
