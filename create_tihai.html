@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Creating Tihais  </title>
+    
+    <script src="https://unpkg.com/tone"></script>
+    <script src="https://unpkg.com/jquery"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <style>
+       body {
+      margin: 10px;
+      font: normal 16px Arial, sans-serif;
+      background-color: #fff;
+      color: #444;
+      }
+      .wrapper {
+      max-width: 1000px;
+      margin: 0 20px;
+      grid-gap: 20px;
+      }
+      .zui-table {
+	  table-layout: fixed;
+      width: 888px;
+      border: solid 2px #DDEEFF;
+      border-collapse: collapse;
+      border-spacing: 0;
+      
+      }
+      
+      .zui-table tbody td {
+      border: solid 1px #DDEEEE;
+      }
+      
+      tr:nth-child(odd) { 
+          background-color: Lightgrey; 
+      }
+      tr:nth-child(even) { 
+          background-color: lightblue; 
+      } 
+      @media print {
+	  p {page-break-after: always;}
+      }
+    </style>
+    <script src=create_tihai.js></script>
+  </head>
+  <body>
+    <h1> Chatushra jaati tihais </h1>
+      Let us first define the following variables:
+      <ul>
+	<li>N = Total number of beats
+	<li>S = Number of syllables (minus dhaa)
+	<li>V = Number of viraams
+      </ul>
+      Example: (A B C D E F G H धा -)*3 would give us a 7 beat tihai.  
+      So, N=7,  S=8, V=1
+      <span id="formatted">
+	<table class="zui-table formatted_dev"><tbody><tr><td>A B C D </td><td>E F G H </td><td>धा - A B </td><td>C D E F </td><td>G H धा - </td><td>A B C D </td><td>E F G H </td></tr><tr><td>धा - </td></tr>
+	</tbody></table>
+      </span>
+
+    <p><p>
+      Here's the formula to determine S and V for any N:
+      <ul>
+	<li> Let T = Total number of syllables needed in the tihai. For example, in a 7-beat tihai, this would 7*4 + 1 for the last dhaa.
+	  <br>
+	  T = N*4 + 1
+	  Example: T = 7*4 + 1 = 28
+	<li> If T%3 == 0, V = 0
+	  <br> If T%3 == 1, V = 2
+	  <br> If T%3 == 2, V = 1
+	  <br> Example: 28%3 == 1, so V = 2
+	<li>
+	  Let P=INT(T/3)
+	  <br> Example: P = INT(28/3) = 9
+	<li>
+	  If V==0 S = P-1
+	  <br> Else S = P-V
+	  <br> Example: S = 9 - 2 = 7
+	  
+	  </ul>
+      
+      <table  class="table table-bordered table-sm">
+	<tbody id=tihai_table>
+	</tbody>
+      </table>
+      
+
+  </body>
+</html>
